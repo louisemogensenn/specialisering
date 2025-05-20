@@ -3,7 +3,7 @@ import React from 'react'
 export default function Underoverskrift({tekst}) {
   return (
     <>
-      <p>{tekst}</p>
+      <p className="text-[12px] mx-[12.5%] md:text-2xl lg:text-2xl">{tekst}</p>
     </>
   )
 }

@@ -7,7 +7,7 @@ export default function Sorter() {
   return (
     <>
         <aside className="dropdown">
-          <button className="dropbtn" onClick={() => setAaben(!aaben)}>
+          <button classname="text-[12px] md:text-2xl lg:text-[20px]" onClick={() => setAaben(!aaben)}>
             Sorter
           </button>
           {aaben && (
