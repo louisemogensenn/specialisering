@@ -12,6 +12,13 @@ export default function SofiesVerden() {
       <Beskrivelse tekst={"Her er en oversigt over dine opgaver."} />
       <Underoverskrift tekst={"Kapitler"} />
       <Knap til="/kapitel" tekst={"Kapitel 1"} point="100"></Knap>
+      <Knap til="#" tekst={"Kapitel 2"} point="250"></Knap>
+      <Knap til="#" tekst={"Kapitel 3"} point="200"></Knap>
+      <Knap til="#" tekst={"Kapitel 4"} point="400"></Knap>
+
+      <Underoverskrift tekst={"Ekstra opgaver"} />
+      <Knap til="/quiz" tekst={"Quiz"} point="100"></Knap>
+      <Knap til="/tegn" tekst={"Tegn"} point="100"></Knap>
     </>
   )
 }

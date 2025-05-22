@@ -3,5 +3,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
-    font-weight: 250; /* Sikrer, at tykkelsen på fonten i default er let */
+    font-weight: 300; /* Sikrer, at tykkelsen på fonten i default er let */
 }

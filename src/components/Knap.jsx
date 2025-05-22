@@ -5,7 +5,7 @@ export default function Knap({ til, tekst, point }) {
   return (
     <>
       <Link
-        className="text-2xl p-3 border flex justify-between items-center mx-[12.5%] md:text-3xl lg:text-3xl"
+        className="text-2xl p-3 border flex justify-between items-center mx-[12.5%] md:text-3xl"
         to={til}
       >
         <span>{tekst}</span>
