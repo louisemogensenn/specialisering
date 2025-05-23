@@ -1,9 +1,10 @@
 import React from 'react'
+import Overskrift from '../components/Overskrift'
 
 export default function Indstillinger() {
   return (
     <div>
-      <h1>Hej Indstillinger</h1>
+      <Overskrift tekst={"INDSTILLINGER"}/>
     </div>
   )
 }

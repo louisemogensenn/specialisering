@@ -1,9 +1,10 @@
 import React from 'react'
+import Overskrift from '../components/Overskrift'
 
 export default function Shop() {
   return (
-    <div>
-      <h1>Hej Shop</h1>
-    </div>
+    <>
+      <Overskrift tekst={"SHOP"}/>
+    </>
   )
 }

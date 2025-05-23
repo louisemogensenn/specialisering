@@ -1,39 +1,24 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import pil from "../assets/pil.svg";
 
 export default function Knap({ til, tekst, point }) {
   return (
-    <>
-      <Link
-        className="text-2xl p-3 border flex justify-between items-center mx-[12.5%] md:text-3xl"
-        to={til}
-      >
-        <span>{tekst}</span>
-        {point ? <span>{point}</span> : null}{" "}
-        {/* Hvis point har en værdi vises denne værdi - ellers vises intet */}
-        <svg
-          width="11"
-          height="20"
-          viewBox="0 0 11 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="0.646447"
-            y1="19.6464"
-            x2="10.6464"
-            y2="9.64645"
-            stroke="black"
-          />
-          <line
-            x1="10.6464"
-            y1="10.3536"
-            x2="0.646447"
-            y2="0.353554"
-            stroke="black"
-          />
-        </svg>
-      </Link>
-    </>
+    <Link
+      className="text-[20px] p-3 border flex justify-between mx-[12.5%] mb-[30px] md:text-3xl"
+      to={til}
+    >
+      <span>{tekst}</span>
+
+      <span className="flex items-center gap-2">
+        {/* Point skal stå  med lav opacitet, men kun hvis der er angivet point. Til dette bruges en ternær operator */}
+        {point ? (
+          <span className="opacity-20">{point}</span>
+        ) : null}
+
+        {/* Pilen */}
+        <img src={pil} alt="Gå til - pil" />
+      </span>
+    </Link>
   );
 }

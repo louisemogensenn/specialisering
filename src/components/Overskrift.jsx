@@ -3,7 +3,7 @@ import React from "react";
 export default function Overskrift({ tekst }) {
   return (
     <>
-      <h1 className="text-2xl mt-36 mx-[12.5%] md:text-5xl lg:text-5xl">{tekst}</h1>
+      <h1 className="text-2xl mt-[-28px] mx-[12.5%] flex justify-center md:text-5xl">{tekst}</h1>
       {/* Tekststørrelsen er 3.75rem og overskriften er placeret 9rem fra toppen */}
     </>
   );

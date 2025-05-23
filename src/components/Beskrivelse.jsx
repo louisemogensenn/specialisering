@@ -3,7 +3,7 @@ import React from "react";
 export default function Beskrivelse({ tekst }) {
   return (
     <>
-      <p className="text-[12px] md:text-2xl lg:text-2xl">{tekst}</p>
+      <p className="text-[12px] flex justify-center md:text-2xl ml-[12.5%] mr-[12.5%]" >{tekst}</p>
     </>
   );
 }

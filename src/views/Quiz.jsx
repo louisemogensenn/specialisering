@@ -1,9 +1,10 @@
 import React from 'react'
+import Overskrift from '../components/Overskrift'
 
 export default function Quiz() {
   return (
     <div>
-      <h1>Hej Quiz</h1>
+      <Overskrift tekst={"QUIZ"}/>
     </div>
   )
 }
