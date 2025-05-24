@@ -3,8 +3,10 @@ import React from "react";
 export default function Overskrift({ tekst }) {
   return (
     <>
-      <h1 className="text-2xl mt-[-28px] mx-[12.5%] flex justify-center md:text-5xl">{tekst}</h1>
-      {/* Tekststørrelsen er 3.75rem og overskriften er placeret 9rem fra toppen */}
+      <h1 className="text-2xl mx-[12.5%] flex justify-center md:text-5xl">
+        {tekst}
+      </h1>
+      {/* Tekststørrelsen er 24px og overskriften er placeret 12.5% fra kanterne. Den er midterplaceret og på større skærme er teksten 48px i stedet */}
     </>
   );
 }

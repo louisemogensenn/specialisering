@@ -11,6 +11,8 @@ import Point from "./views/Point";
 import Quiz from "./views/Quiz";
 import SaadanBrugerDuAppen from "./views/SaadanBrugerDuAppen";
 import Tegn from "./views/Tegn";
+import Burgermenu from "./components/Burgermenu";
+import LogInd from "./views/LogInd";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
         element: <AlleForloeb />,
       },
       {
+        path: "/burgermenu",
+        element: <Burgermenu />,
+      },
+      {
         path: "/sofiesverden",
         element: <SofiesVerden />,
       },
@@ -39,24 +45,28 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <Shop />
+        element: <Shop />,
       },
       {
         path: "point",
-        element: <Point />
+        element: <Point />,
       },
       {
         path: "/quiz",
-        element: <Quiz />
+        element: <Quiz />,
       },
       {
         path: "/saadanBrugerDuAppen",
-        element: <SaadanBrugerDuAppen/>
+        element: <SaadanBrugerDuAppen />,
       },
       {
         path: "/tegn",
-        element: <Tegn/>
-      }
+        element: <Tegn />,
+      },
+      {
+        path: "/logind",
+        element: <LogInd />,
+      },
     ],
   },
 ]);

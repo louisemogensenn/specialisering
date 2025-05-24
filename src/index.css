@@ -1,7 +1,70 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 body {
-    font-weight: 300; /* Sikrer, at tykkelsen på fonten i default er let */
+  font-weight: 300; /* Sikrer, at tykkelsen på fonten i default er let */
+  background-color: var(--bg);
+}
+
+/* Klassen bruges til at ændre baggrundsfarven og streg-farven for flere elementer */
+
+.themable { 
+  background-color: var(--bg);
+  border-color: var(--border);
+}
+
+button {
+  background-color: var(--button);
+}
+
+input,
+header {
+  background-color: var(--input);
+}
+
+/* Og dine temaer skal også være her: */
+
+.tema-roed {
+  --bg: #fcf0f0;
+  --input: #ffe2e3;
+  --button: #f9c3c4;
+  --border: #d13338;
+}
+
+.tema-gul {
+  --bg: #fff8e7;
+  --input: #ffeec3;
+  --button: #ffe29c;
+  --border: #ffc538;
+}
+
+/* osv. */
+
+.tema-roed {
+  --bg: #fcf0f0;
+  --input: #ffe2e3; /* Denne farve bruges også i header */
+  --button: #f9c3c4;
+  --border: #d13338;
+}
+
+.tema-gul {
+  --bg: #fff8e7;
+  --input: #ffeec3; /* Denne farve bruges også i header */
+  --button: #ffe29c;
+  --border: #ffc538;
+}
+
+.tema-groen {
+  --bg: #e7fef0;
+  --input: #bdf7d2; /* Denne farve bruges også i header */
+  --button: #9eecbb;
+  --border: #17be55;
+}
+
+.tema-blaa {
+  --bg: #e8f5ff;
+  --input: #d1ecff; /* Denne farve bruges også i header */
+  --button: #a0d8ff;
+  --border: #0d22e8;
 }

@@ -6,8 +6,8 @@ import Knap from "../components/Knap";
 export default function Tegn() {
   return (
     <div>
-      <Overskrift tekst={"TEGN"} />
-      <Lydafspiller />
+      <Overskrift tekst={"TEGN"} /> {/* Overskrift for siden */}
+      <Lydafspiller /> {/* Lydafspiller komponent, der afspiller en lydfil */}
       <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px]">
         I filosofien har vi hørt om Platons hule – en fortælling om nogle
         mennesker, der kun kan se skygger på en væg og tror, det er hele
@@ -15,9 +15,9 @@ export default function Tegn() {
         det, der sker i den. Du bestemmer selv, hvad der skal være med. <br />{" "}
         <br /> Når du er færdig, skal du tage et billede af din tegning og
         uploade det.
-      </p>
+      </p> {/* Beskrivelse af opgaven med margin til siderne og toppen samt mindre tekststørrelse */}
 
-      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl">
+      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl"> {/* Flexbox bruges til at centrere indholdet, og der er padding, kant og margin for at give afstand til siderne og bunden */ }
         <svg
           width="36"
           height="25"
@@ -43,7 +43,7 @@ export default function Tegn() {
           <line x1="18.5" y1="1" x2="18.5" y2="21" stroke="black" />
         </svg>
 
-        <p className="flex-1 text-center">Upload</p>
+        <p className="flex-1 text-center">Upload</p> {/* Tekst centreret i flexboxen, der beskriver upload-handlingen */}
       </aside>
     </div>
   );
