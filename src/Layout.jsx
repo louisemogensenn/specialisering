@@ -18,7 +18,8 @@ export default function Layout() {
     "/indstillinger",
     "/saadanBrugerDuAppen",
     "/logud",
-    "/burgermenu"
+    "/burgermenu",
+    "/logind"
   ];
 
   useEffect(() => {
@@ -30,8 +31,7 @@ export default function Layout() {
     <>
       {/* Heri angivet komponenterne, der danner rammen for appen */}
 
-      <Header />
-      <Sorter />
+      {path !== "/logind" && <Header />}
 
       {!siderUdenPil.includes(path) && <TilbagePil />}
 

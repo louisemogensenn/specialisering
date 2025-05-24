@@ -18,25 +18,13 @@ button {
   background-color: var(--button);
 }
 
-input,
+input, textarea,
 header {
   background-color: var(--input);
 }
 
-/* Og dine temaer skal også være her: */
-
-.tema-roed {
-  --bg: #fcf0f0;
-  --input: #ffe2e3;
-  --button: #f9c3c4;
-  --border: #d13338;
-}
-
-.tema-gul {
-  --bg: #fff8e7;
-  --input: #ffeec3;
-  --button: #ffe29c;
-  --border: #ffc538;
+input, textarea {
+  border-color: var(--border);
 }
 
 /* osv. */

@@ -21,18 +21,19 @@ export default function Shop() {
     <>
       <Overskrift tekst={"SHOP"} />
       <Underoverskrift tekst={"Karakterer"} />
-      <section className="themable flex justify-between mx-[12.5%]"> {/* Themable klasse bruges til at ændre farverne på baggrunden af denne sektion baseret på det valgte tema */}
-        <aside className="w-[100px] h-[132px] border rounded"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
-        <aside className="w-[100px] h-[132px] border rounded"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
-        <aside className="w-[100px] h-[132px] border rounded"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
+      <section className="flex justify-between mx-[12.5%]"> {/* Themable klasse bruges til at ændre farverne på baggrunden af denne sektion baseret på det valgte tema */}
+        <aside className="w-[60px] h-[120px] border rounded bg-[#FCF0F0] border-[#d13338]"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
+        <aside className="w-[60px] h-[120px] border rounded bg-[#FFF8E7] border-[#ffc538]"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
+        <aside className="w-[60px] h-[120px] border rounded bg-[#E7FEF0] border-[#17be55]"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
+        <aside className="w-[60px] h-[120px] border rounded bg-[#E8F5FF] border-[#0d22e8]"></aside> {/* Hver karakter er repræsenteret af et aside-element med en bredde på 100px, en højde på 132px, en kant og afrundede hjørner */}
       </section>
 
       <Underoverskrift tekst={"Tema"} />
-      <section className="themable flex justify-between mx-[12.5%]">
-        <aside onClick={() => setTema("roed")} className="w-[55px] h-[55px] border rounded bg-[#FCF0F0]"></aside> {/* Klik på denne sektion ændrer temaet til rødt */}
-        <aside onClick={() => setTema("gul")} className="w-[55px] h-[55px] border rounded bg-[#FFF8E7]"></aside> {/* Klik på denne sektion ændrer temaet til gult */}
-        <aside onClick={() => setTema("groen")} className="w-[55px] h-[55px] border rounded bg-[#E7FEF0]"></aside> {/* Klik på denne sektion ændrer temaet til grønt */}
-        <aside onClick={() => setTema("blaa")} className="w-[55px] h-[55px] border rounded bg-[#E8F5FF]"></aside> {/* Klik på denne sektion ændrer temaet til blåt */}
+      <section className="flex justify-between mx-[12.5%]">
+        <aside onClick={() => setTema("roed")} className="w-[55px] h-[55px] border rounded bg-[#FCF0F0] border-[#d13338]"></aside> {/* Klik på denne sektion ændrer temaet til rødt */}
+        <aside onClick={() => setTema("gul")} className="w-[55px] h-[55px] border rounded bg-[#FFF8E7] border-[#ffc538]"></aside> {/* Klik på denne sektion ændrer temaet til gult */}
+        <aside onClick={() => setTema("groen")} className="w-[55px] h-[55px] border rounded bg-[#E7FEF0] border-[#17be55]"></aside> {/* Klik på denne sektion ændrer temaet til grønt */}
+        <aside onClick={() => setTema("blaa")} className="w-[55px] h-[55px] border rounded bg-[#E8F5FF] border-[#0d22e8]"></aside> {/* Klik på denne sektion ændrer temaet til blåt */}
       </section>
     </>
   );

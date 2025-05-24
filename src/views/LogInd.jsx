@@ -6,7 +6,7 @@ export default function LogInd() {
   return (
     <section className="themable"> {/* 'themable' er en klasse, der kan bruges til at ændre temaet for denne sektion */ }
       <img
-        className="w-[300px] h-[60px] mx-auto mb-16" // Billedet er centreret og har en bredde på 300px og en højde på 60px
+        className="w-[300px] h-[60px] mx-auto mb-16 mt-5" // Billedet er centreret og har en bredde på 300px og en højde på 60px
         src={gyldendallogo} // Importeret logo fra assets-mappen
         alt="Gyldendal Logo" // Alternativ tekst for billedet
       />
