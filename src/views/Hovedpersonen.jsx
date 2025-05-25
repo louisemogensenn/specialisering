@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import Overskrift from "../components/Overskrift";
 import Lydafspiller from "../components/Lydafspiller";
 import Underoverskrift from "../components/Underoverskrift";
 import CallToActionKnap from "../components/CallToActionKnap";
 
-export default function KapitelEt() {
+export default function Hovedpersonen() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
   const [beskrivelse, setBeskrivelse] = useState(""); // State for at gemme beskrivelsen af hovedpersonen - svar 2
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
@@ -25,7 +24,7 @@ export default function KapitelEt() {
 
   return (
     <>
-      <Overskrift tekst={"Kapitel 1"} />
+      <Overskrift tekst={"Hovedpersonen"} />
       <Lydafspiller />
       <h1 className="text-[20px] mb-[2%] mx-[12.5%] mt-[4%]">Opgave 1</h1>
       <Underoverskrift tekst={"Hvad hedder hovedpersonen?"} />

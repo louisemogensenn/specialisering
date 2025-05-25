@@ -4,8 +4,6 @@ import { useLocation } from "react-router-dom";
 import TilbagePil from "./components/TilbagePil";
 import Header from "./components/Header";
 import { useEffect } from "react";
-import LogInd from "./views/LogInd";
-import Sorter from "./components/Sorter";
 
 export default function Layout() {
   const nuvaerendeLokation = useLocation(); // Brug useLocation til at få den nuværende rute

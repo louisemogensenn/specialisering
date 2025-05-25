@@ -5,7 +5,7 @@ import pil from "../assets/pil.svg";
 {
   /* Når komponenten Knap oprettes angives stien, tekst og eventuelle point samt eventuel rotation */
 }
-export default function Knap({ til, tekst, point, rotation = 0 }) {
+export default function Knap({ til, tekst, point}) {
   return (
     <Link
       className="themable text-[20px] p-3 border flex justify-between mx-[12.5%] mb-[30px] bg-[inherit] rounded md:text-3xl" //Linket får klassen themable, der angiver den farver, knappens tekst er 20px og har en padding på 12px. Kanterne afrundes og på medium skærme er teksten 30px
@@ -22,7 +22,6 @@ export default function Knap({ til, tekst, point, rotation = 0 }) {
         <img
           src={pil} //Pilen importeres fra assets
           alt="Gå til - pil" //Alt-teksten for billedet
-          style={{ transform: `rotate(${rotation}deg)` }} //Rotationen af pilen angives her. Hvis rotation ikke er angivet, er den 0 grader som angivet øverst. Back tics bruges til at indsætte variablen rotation i CSS-stilen. ${} bruges så variablen indsættes i en streng.
         />
       </span>
     </Link>

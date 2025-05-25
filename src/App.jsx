@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import MineForloeb from "./views/MineForloeb";
 import SofiesVerden from "./views/SofiesVerden";
-import AlleForloeb from "./views/AlleForloeb";
-import KapitelEt from "./views/KapitelEt";
+import Hovedpersonen from "./views/Hovedpersonen";
+import Hulen from "./views/Hulen";
 import Indstillinger from "./views/Indstillinger";
 import Shop from "./views/Shop";
 import Point from "./views/Point";
@@ -13,6 +13,7 @@ import SaadanBrugerDuAppen from "./views/SaadanBrugerDuAppen";
 import Tegn from "./views/Tegn";
 import Burgermenu from "./components/Burgermenu";
 import LogInd from "./views/LogInd";
+import UdforskAlleForloeb from "./views/UdforskAlleForloeb";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +25,6 @@ const router = createBrowserRouter([
         element: <MineForloeb />,
       },
       {
-        path: "/alleForloeb",
-        element: <AlleForloeb />,
-      },
-      {
         path: "/burgermenu",
         element: <Burgermenu />,
       },
@@ -36,8 +33,12 @@ const router = createBrowserRouter([
         element: <SofiesVerden />,
       },
       {
-        path: "/kapitel",
-        element: <KapitelEt />,
+        path: "/hovedpersonen",
+        element: <Hovedpersonen />,
+      },
+      {
+        path: "/hulen",
+        element: <Hulen />
       },
       {
         path: "/indstillinger",
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
         path: "/logind",
         element: <LogInd />,
       },
+      {
+        path: "/udforskalleforloeb",
+        element: <UdforskAlleForloeb />,
+      }
     ],
   },
 ]);
