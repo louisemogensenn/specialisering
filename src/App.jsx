@@ -14,6 +14,8 @@ import Tegn from "./views/Tegn";
 import Burgermenu from "./components/Burgermenu";
 import LogInd from "./views/LogInd";
 import UdforskAlleForloeb from "./views/UdforskAlleForloeb";
+import SofiesVerdenKlasse from "./views/SofiesVerdenKlasse";
+import Elev from "./views/Elev";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "/udforskalleforloeb",
         element: <UdforskAlleForloeb />,
+      },
+      {
+        path: "/sofiesverdenklasse",
+        element: <SofiesVerdenKlasse />, 
+      }, 
+      {
+        path: "/elev",
+        element: <Elev/>
       }
     ],
   },

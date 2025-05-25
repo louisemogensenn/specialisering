@@ -17,7 +17,7 @@ export default function MineForloeb() {
         tekst={"Her er en oversigt over dine igangværende forløb"}
       />{" "}
       <Sorter /> {/* Komponent til sortering af forløb */}
-      <Knap til="/sofiesverden" tekst="Sofies Verden" point={"5.A"} />{" "}
+      <Knap til="/sofiesverdenklasse" tekst="Sofies Verden" point={"5.A"} />{" "}
       {/* Knap, der linker til forløbet Sofies Verden */}
       <Knap til="#" tekst="Klods Hans" point={"5.B"} />{" "}
       {/* Knap, der linker til forløbet Klods Hans */}
