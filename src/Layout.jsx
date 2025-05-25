@@ -19,7 +19,8 @@ export default function Layout() {
     "/saadanBrugerDuAppen",
     "/logud",
     "/burgermenu",
-    "/logind"
+    "/logind",
+    "/point"
   ];
 
   useEffect(() => {
