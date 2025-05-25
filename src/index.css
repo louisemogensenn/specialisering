@@ -14,8 +14,8 @@ body {
   border-color: var(--border);
 }
 
-button {
-  background-color: var(--button);
+button.themable {
+  background-color: var(--button); /* I ovenstående får elementer en specifik baggrundsfarve, men for knapper vil vi gerne ændre denne baggrundsfarve i knappen */
 }
 
 input, textarea,
