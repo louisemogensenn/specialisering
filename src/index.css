@@ -18,8 +18,12 @@ button.themable {
   background-color: var(--button); /* I ovenstående får elementer en specifik baggrundsfarve, men for knapper vil vi gerne ændre denne baggrundsfarve i knappen */
 }
 
+nav.themable {
+  background-color: var(--input);
+}
+
 input, textarea,
-header {
+header, nav {
   background-color: var(--input);
 }
 

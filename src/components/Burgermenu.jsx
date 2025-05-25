@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Burgermenu() {
   return (
     <>
-      <nav className="text-2xl flex flex-col justify-center align-center text-center gap-12">
-        {" "}
+      <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
         {/* Tekststørrelsen er 24px, elementerne er i felx-column og er placeret i midten. Der er 48px mellem hvert link */}
         {/* Menu-links */}
         <Link to="/logind">Log Ind</Link> {/* Link til Logind-siden */}

@@ -1,11 +1,24 @@
 import React from "react";
 import Overskrift from "../components/Overskrift";
 import Lydafspiller from "../components/Lydafspiller";
-import Knap from "../components/Knap";
+import CallToActionKnap from "../components/CallToActionKnap";
+import { useNavigate } from "react-router-dom";
 
 export default function Tegn() {
+  const navigate = useNavigate(); // <- DENNE MANGLEDE!
+
+  const afleveret = () => {
+    // Funktion der håndterer aflevering af tegningen
+    alert(
+      "Din tegning er blevet afleveret! Klik 'Luk' og du sendes tilbage til forsiden"
+    ); // Viser en alert når tegningen er afleveret
+    setTimeout(() => {
+      navigate("/sofiesverden"); // Flytter brugeren, når der er klikket Luk
+    }, 1000);
+  };
+
   return (
-    <div>
+    <>
       <Overskrift tekst={"TEGN"} /> {/* Overskrift for siden */}
       <Lydafspiller /> {/* Lydafspiller komponent, der afspiller en lydfil */}
       <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px]">
@@ -15,9 +28,11 @@ export default function Tegn() {
         det, der sker i den. Du bestemmer selv, hvad der skal være med. <br />{" "}
         <br /> Når du er færdig, skal du tage et billede af din tegning og
         uploade det.
-      </p> {/* Beskrivelse af opgaven med margin til siderne og toppen samt mindre tekststørrelse */}
-
-      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl"> {/* Flexbox bruges til at centrere indholdet, og der er padding, kant og margin for at give afstand til siderne og bunden */ }
+      </p>{" "}
+      {/* Beskrivelse af opgaven med margin til siderne og toppen samt mindre tekststørrelse */}
+      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl">
+        {" "}
+        {/* Flexbox bruges til at centrere indholdet, og der er padding, kant og margin for at give afstand til siderne og bunden */}
         <svg
           width="36"
           height="25"
@@ -42,9 +57,13 @@ export default function Tegn() {
           <line y1="24.5" x2="36" y2="24.5" stroke="black" />
           <line x1="18.5" y1="1" x2="18.5" y2="21" stroke="black" />
         </svg>
-
-        <p className="flex-1 text-center">Upload</p> {/* Tekst centreret i flexboxen, der beskriver upload-handlingen */}
+        <p className="flex-1 text-center">Upload</p>{" "}
+        {/* Tekst centreret i flexboxen, der beskriver upload-handlingen */}
       </aside>
-    </div>
+      <section className="flex justify-center items-center">
+        <CallToActionKnap tekst={"AFLEVER"} onClick={afleveret} />{" "}
+        {/* Knap-komponent, der fungerer som en call-to-action for at uploade tegningen */}
+      </section>
+    </>
   );
 }

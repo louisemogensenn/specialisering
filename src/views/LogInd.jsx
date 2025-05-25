@@ -1,6 +1,7 @@
 import React from "react";
 import Overskrift from "../components/Overskrift";
 import gyldendallogo from "../assets/gyldendal.svg";
+import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap-komponenten
 
 export default function LogInd() {
   return (
@@ -20,7 +21,7 @@ export default function LogInd() {
               Brugernavn
             </label>
             <input
-              className="w-full h-12 border px-3" // Inputfeltet har en bredde på 100%, en højde på 48px, en kant og padding på 12px
+              className="w-full h-12 border px-3 rounded" // Inputfeltet har en bredde på 100%, en højde på 48px, en kant og padding på 12px
               type="text" // Inputfeltet er af typen tekst
               placeholder="Indtast brugernavn" // Pladsholdertekst, der vises i inputfeltet, når det er tomt
               required // Angiver, at dette felt er obligatorisk at udfylde
@@ -32,20 +33,16 @@ export default function LogInd() {
               Adgangskode
             </label>
             <input
-              className="w-full h-12 border px-3" // Inputfeltet har samme styling som brugernavn-inputfeltet
+              className="w-full h-12 border px-3 rounded" // Inputfeltet har samme styling som brugernavn-inputfeltet
               type="password" // Inputfeltet er af typen adgangskode, hvilket skjuler indtastede tegn
               placeholder="Indtast adgangskode" // Pladsholdertekst for adgangskode-inputfeltet
               required // Angiver, at dette felt også er obligatorisk at udfylde
             />
           </aside>
-
-          <button
-            type="submit" // Knappen er af typen submit, hvilket betyder, at den sender formularen, når den klikkes
-            className="text-2xl border px-6 py-3 w-fit mx-auto" // Knappen har en tekststørrelse på 24px, en kant, padding på 24px i x-retning og 12px i y-retning, og den er centreret horisontalt
-          >
-            LOG IND
-          </button>
         </form>
+        <aside className="mt-[5%] flex justify-center items-center">
+        <CallToActionKnap tekst={"LOG IND"} til="/" /> {/* En komponent, der repræsenterer en opfordring til handling-knap */ }
+        </aside>
         <aside className="flex flex-col text-center gap-6 mt-[10%]"> {/* En aside, der centrerer teksten og giver mellemrum mellem elementerne */ }
           <p className="text-[20px] underline">Glemt kodeord?</p> {/* Understreget tekst for at indikere, at dette er et link eller en handling */ }
           <p className="text-[20px] underline">Ikke medlem? Opret dig</p> {/* Understreget tekst for at indikere, at dette er et link eller en handling */ }

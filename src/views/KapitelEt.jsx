@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Overskrift from "../components/Overskrift";
 import Lydafspiller from "../components/Lydafspiller";
 import Underoverskrift from "../components/Underoverskrift";
-import { Link } from "react-router-dom";
+import CallToActionKnap from "../components/CallToActionKnap";
 
 export default function KapitelEt() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
@@ -48,7 +49,9 @@ export default function KapitelEt() {
           onChange={(e) => setBeskrivelse(e.target.value)}
         ></textarea>
       </aside>
-      <aside className="flex justify-center mt-[5%]"> {/* Justerer knappen til at være centreret */}
+      <aside className="flex justify-center mt-[5%]">
+        {" "}
+        {/* Justerer knappen til at være centreret */}
         <button
           type="button"
           className="themable text-2xl border px-6 py-1 w-fit mb-3 rounded" // Styler knappen med en tema, tekststørrelse på 2xl, kant, padding på 24px horisontalt og 4px vertikalt, giver den en bredde der passer til indholdet og en margen i bunden på 12px
@@ -69,22 +72,9 @@ export default function KapitelEt() {
               Er du sikker på, at du vil aflevere? <br /> Dit valg kan ikke
               fortrydes.
             </p>
-            <section className="themable flex justify-center gap-6">
-              <button
-                type="button"
-                className="themable px-6 py-2 border rounded"
-                onClick={handleCancel}
-              >
-                TILBAGE
-              </button>
-              <Link to="/point">
-                <button
-                  type="button"
-                  className="themable px-6 py-2 border rounded"
-                >
-                  AFLEVER
-                </button>
-              </Link>
+            <section className="flex justify-center gap-6">
+              <CallToActionKnap tekst={"TILBAGE"} onClick={handleCancel} />
+              <CallToActionKnap tekst={"AFLEVER"} til={"/point"} />
             </section>
           </article>
         </aside>
