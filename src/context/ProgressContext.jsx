@@ -5,31 +5,44 @@ const ProgressContext = createContext(); // Opretter en kontekst for at dele fre
 export const useProgress = () => useContext(ProgressContext); // Custom hook til at bruge ProgressContext i andre komponenter
 
 export const ProgressProvider = ({ children }) => {
-  const [points, setPoints] = useState(0); // State til at gemme point, som brugeren optjener. Point er i default 0
+  const [points, setPoints] = useState(0); // State til at vise point, som beregnes dynamisk
   const [faerdigeOpgaver, setFaerdigeOpgaver] = useState([]); // State til at gemme færdige opgaver i et array
 
-  // Hent gemt data fra localStorage ved opstart og kun ved opstart
+  // Objekt der definerer hvor mange point hver opgave giver
+  const opgavePoint = {
+    hovedpersonen: 100,
+    hulen: 250,
+    filosofi: 200,
+    tidsrejse: 400,
+    quiz: 100,
+    tegn: 100,
+  };
+
+  // Hent gemt data fra localStorage ved opstart og beregn point
   useEffect(() => {
-    const gemtePoints = parseInt(localStorage.getItem("points")) || 0; // Henter gemte point fra localStorage, eller sætter til 0 hvis ikke fundet
     const gemteTasks =
-      JSON.parse(localStorage.getItem("faerdigeOpgaver")) || []; // Henter gemte opgaver fra localStorage, eller sætter til tom array hvis ikke fundet
-    setPoints(gemtePoints); // Opdaterer state med gemte point
+      JSON.parse(localStorage.getItem("faerdigeOpgaver")) || []; // Henter gemte opgaver fra localStorage, eller sætter til tomt array hvis ikke fundet
     setFaerdigeOpgaver(gemteTasks); // Opdaterer state med gemte opgaver
+
+    // Beregn point ud fra de færdige opgaver
+    const beregnedePoint = gemteTasks.reduce((sum, task) => {
+      return sum + (opgavePoint[task] || 0);
+    }, 0);
+    setPoints(beregnedePoint); // Opdaterer point ud fra opgaver
   }, []);
 
-  // Opdater localStorage, når der gives point eller løses opgave
-  const faerdiggoerOpgaver = (taskName, taskPoints) => {
-    // En funktion der håndterer færdiggørelse af opgaver. Den tager to parametre: taskName (navnet på opgaven) og taskPoints (point for opgaven)
+  // Funktion til at markere en opgave som færdig og genberegne point
+  const faerdiggoerOpgaver = (taskName) => {
     if (!faerdigeOpgaver.includes(taskName)) {
-      // Hvis opgaven ikke allerede er færdiggjort (hvis ikke arrayet faerdigeOpgaver indeholder taskName)
-      const newTasks = [...faerdigeOpgaver, taskName]; // Oprettes et nyt array newTasks, der indeholder alle tidligere færdige opgaver plus den nye opgave (taskName)
-      const newPoints = points + taskPoints; // Opdateres point ved at lægge de nuværende point sammen med pointene for den nye opgave (taskPoints)
+      const nyeTasks = [...faerdigeOpgaver, taskName]; // Tilføj ny opgave til array
+      setFaerdigeOpgaver(nyeTasks); // Opdaterer state
+      localStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gem i localStorage
 
-      setFaerdigeOpgaver(newTasks); // Opdaterer state med de nye færdige opgaver
-      setPoints(newPoints); // Opdaterer state med de nye point
-
-      localStorage.setItem("faerdigeOpgaver", JSON.stringify(newTasks)); // Gemmer de nye færdige opgaver i localStorage som en JSON-streng
-      localStorage.setItem("points", newPoints.toString()); // Gemmer de nye point i localStorage som en streng
+      // Beregn point på ny
+      const nyePoint = nyeTasks.reduce((sum, task) => {
+        return sum + (opgavePoint[task] || 0);
+      }, 0);
+      setPoints(nyePoint); // Opdaterer point i state
     }
   };
 
