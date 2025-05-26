@@ -3,11 +3,21 @@ import Overskrift from "../components/Overskrift";
 import Lydafspiller from "../components/Lydafspiller";
 import Underoverskrift from "../components/Underoverskrift";
 import CallToActionKnap from "../components/CallToActionKnap";
+import { useProgress } from "../context/ProgressContext";
+import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
+
 
 export default function Hovedpersonen() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
   const [beskrivelse, setBeskrivelse] = useState(""); // State for at gemme beskrivelsen af hovedpersonen - svar 2
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
+  const { completeTask } = useProgress();
+  const navigate = useNavigate();
+
+  const handleFinalSubmit = () => {
+    completeTask("hovedpersonen", 100); // navn og point
+    navigate("/point"); // evt. brug useNavigate()
+  };
 
   const handleSubmitClick = () => {
     if (navn.trim() === "" || beskrivelse.trim() === "") {
@@ -73,7 +83,7 @@ export default function Hovedpersonen() {
             </p>
             <section className="flex justify-center gap-6">
               <CallToActionKnap tekst={"TILBAGE"} onClick={handleCancel} />
-              <CallToActionKnap tekst={"AFLEVER"} til={"/point"} />
+              <CallToActionKnap tekst={"AFLEVER"} onClick={handleFinalSubmit}/>
             </section>
           </article>
         </aside>

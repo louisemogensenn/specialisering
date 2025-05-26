@@ -5,11 +5,9 @@ import MineForloeb from "./views/MineForloeb";
 import SofiesVerden from "./views/SofiesVerden";
 import Hovedpersonen from "./views/Hovedpersonen";
 import Hulen from "./views/Hulen";
-import Indstillinger from "./views/Indstillinger";
 import Shop from "./views/Shop";
 import Point from "./views/Point";
 import Quiz from "./views/Quiz";
-import SaadanBrugerDuAppen from "./views/SaadanBrugerDuAppen";
 import Tegn from "./views/Tegn";
 import Burgermenu from "./components/Burgermenu";
 import LogInd from "./views/LogInd";
@@ -53,10 +51,6 @@ const router = createBrowserRouter([
         element: <Hulen />,
       },
       {
-        path: "/indstillinger",
-        element: <Indstillinger />,
-      },
-      {
         path: "/shop",
         element: <Shop />,
       },
@@ -67,10 +61,6 @@ const router = createBrowserRouter([
       {
         path: "/quiz",
         element: <Quiz />,
-      },
-      {
-        path: "/saadanBrugerDuAppen",
-        element: <SaadanBrugerDuAppen />,
       },
       {
         path: "/tegn",

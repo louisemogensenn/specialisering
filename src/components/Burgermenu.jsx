@@ -23,16 +23,14 @@ export default function Burgermenu() {
           <Link to="/">Log Ind</Link>
           <Link to="/mineforloeb">Se mine forløb</Link>
           <Link to="/shop">Gå til shop</Link>
-          <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
-          <Link to="/indstillinger">Indstillinger</Link>
+          <Link to="#">Indstillinger</Link>
           <button onClick={handleLogout}>Log ud</button>
         </nav>
       ) : (
         <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
           <Link to="/udforskalleforloeb">Udforsk alle forløb</Link>
           <Link to="/mineforloeb">Se mine forløb</Link>
-          <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
-          <Link to="/indstillinger">Indstillinger</Link>
+          <Link to="#">Indstillinger</Link>
           <button onClick={handleLogout}>Log ud</button>
         </nav>
       )}

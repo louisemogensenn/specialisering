@@ -4,14 +4,17 @@ import ellipse from "../assets/ellipse.svg";
 import burgermenu from "../assets/burgermenu-ikon.svg";
 import krydsikon from "../assets/luk-ikon.svg"; // ← Tilføj et krydsikon (svg)
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useProgress } from "../context/ProgressContext"; // Importerer ProgressContext for at få adgang til points
 
 export default function Header() {
   const lokation = useLocation(); // Henter nuværende sti og gemmer værdien i konstanten lokation
   const navigate = useNavigate(); // Henter funktionen til at navigere
 
   const erBurgermenu = location.pathname === "/burgermenu"; // Tjekker om den nuværende sti er "/burgermenu". Returnerer true eller false
+  const { points } = useProgress();
 
   return (
+    
     <header className="flex items-center justify-between px-[12.5%] py-[25px] mb-[10%] md:mb-[5%]"> 
       {" "}
       {/* Elementerne er i flex og placeres med plads imellem sig med 12.5%s afstand til sidene, derudover en afstand på 50px til toppen, 10% til bunden og baggrundsfarven nedarves */}
@@ -32,7 +35,7 @@ export default function Header() {
         alt="Gyldendal Logo" // Alt-tekst for logoet
       />
       {/* Point */}
-      <img className="w-[40px] h-[40px]" src={ellipse} alt="Dine point" />{" "}
+      <p>{points}</p>
       {/* Point-ikonet er 40px bredt og 40px højt og har referencen ellipse, der refererer til en importeret svg øverst*/}
     </header>
   );

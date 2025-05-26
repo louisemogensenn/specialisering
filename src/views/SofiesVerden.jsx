@@ -7,19 +7,20 @@ import pil from "../assets/pil.svg"; // Importerer pil-ikonet
 import { useState } from "react"; // Importerer useState for at håndtere komponentens tilstand
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
 import { useAuth } from "../context/AuthContext"; // Importerer AuthContext for at få adgang til brugerens rolle
+import { useProgress } from "../context/ProgressContext"; // Importerer ProgressContext for at få adgang til opgaver
 
 export default function SofiesVerden() {
   const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false);
   const [aabenHulen, setAabenHulen] = useState(false);
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-
   const { role } = useAuth();
+  const { completedTasks } = useProgress();
+  const erHovedpersonenLøst = completedTasks.includes("hovedpersonen");
 
   if (!role) {
     return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
   }
   
-
   return (
     <>
     <Overskrift tekst={"SOFIES VERDEN"} /> {/* Overskrift for siden */}
@@ -29,9 +30,7 @@ export default function SofiesVerden() {
       {/* Beskrivelse af siden */}
       <Underoverskrift tekst={"Opgaver"} />{" "}
       {/* Underoverskrift for kapitler */}
-      <Knap
-        til="/hovedpersonen" tekst={"Hovedpersonen"} point="100 POINT"></Knap>{" "}
-      {/* Knap, der linker til Kapitel 1 og viser point */}
+      <Knap til={erHovedpersonenLøst ? "#" : "/hovedpersonen"} tekst={`Hovedpersonen ${erHovedpersonenLøst ? "" : ""}`} point="100 POINT"disabled={erHovedpersonenLøst} />
       <Knap til="#" tekst={"Hulen"} point="250 POINT"></Knap>{" "}
       {/* Knap, der linker til Kapitel 2 og viser point */}
       <Knap til="#" tekst={"Filosofi"} point="200 POINT"></Knap>{" "}
