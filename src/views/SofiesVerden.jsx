@@ -17,25 +17,22 @@ export default function SofiesVerden() {
       <Overskrift tekst={"SOFIES VERDEN"} /> {/* Overskrift for siden */}
       <Beskrivelse tekst={"Her er en oversigt over dine opgaver."} />{" "}
       {/* Beskrivelse af siden */}
-      <Underoverskrift tekst={"Kapitler"} />{" "}
+      <Underoverskrift tekst={"Opgaver"} />{" "}
       {/* Underoverskrift for kapitler */}
       <Knap
-        til="/hovedpersonen"
-        tekst={"Hovedpersonen"}
-        point="100"
-      ></Knap>{" "}
+        til="/hovedpersonen" tekst={"Hovedpersonen"} point="100 POINT"></Knap>{" "}
       {/* Knap, der linker til Kapitel 1 og viser point */}
-      <Knap til="#" tekst={"Hulen"} point="250"></Knap>{" "}
+      <Knap til="#" tekst={"Hulen"} point="250 POINT"></Knap>{" "}
       {/* Knap, der linker til Kapitel 2 og viser point */}
-      <Knap til="#" tekst={"Filosofi"} point="200"></Knap>{" "}
+      <Knap til="#" tekst={"Filosofi"} point="200 POINT"></Knap>{" "}
       {/* Knap, der linker til Kapitel 3 og viser point */}
-      <Knap til="#" tekst={"Tidsrejse"} point="400"></Knap>{" "}
+      <Knap til="#" tekst={"Tidsrejse"} point="400 POINT"></Knap>{" "}
       {/* Knap, der linker til Kapitel 4 og viser point */}
       <Underoverskrift tekst={"Ekstra opgaver"} />{" "}
       {/* Underoverskrift for ekstra opgaver */}
-      <Knap til="/quiz" tekst={"Quiz"} point="100"></Knap>{" "}
+      <Knap til="/quiz" tekst={"Quiz"} point="100 POINT"></Knap>{" "}
       {/* Knap, der linker til Quiz og viser point */}
-      <Knap til="/tegn" tekst={"Tegn"} point="100"></Knap>{" "}
+      <Knap til="/tegn" tekst={"Tegn"} point="100 POINT"></Knap>{" "}
       {/* Knap, der linker til Tegn og viser point */}
       <section>
         <Overskrift tekst={"SOFIES VERDEN"} />{" "}
