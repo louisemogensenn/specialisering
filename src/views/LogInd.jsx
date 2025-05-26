@@ -1,51 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+
 import Overskrift from "../components/Overskrift";
 import gyldendallogo from "../assets/gyldendal.svg";
-import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap-komponenten
+import CallToActionKnap from "../components/CallToActionKnap";
 
 export default function LogInd() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const uid = userCredential.user.uid;
+
+      // Hent rolle fra Firestore
+      const docRef = doc(db, "users", uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const role = docSnap.data().role;
+        console.log("Brugerens rolle:", role);
+
+        // Naviger til en rollebaseret side
+        navigate("/", { state: { role } }); // eller gem i context/global state
+      } else {
+        alert("Brugerens rolle blev ikke fundet.");
+      }
+    } catch (error) {
+      console.error("Login-fejl:", error.message);
+      alert("Forkert email eller adgangskode");
+    }
+  };
+
   return (
-    <section className="themable"> {/* 'themable' er en klasse, der kan bruges til at ændre temaet for denne sektion */ }
+    <section className="themable">
       <img
-        className="w-[300px] h-[60px] mx-auto mb-16 mt-5" // Billedet er centreret og har en bredde på 300px og en højde på 60px
-        src={gyldendallogo} // Importeret logo fra assets-mappen
-        alt="Gyldendal Logo" // Alternativ tekst for billedet
+        className="w-[300px] h-[60px] mx-auto mb-16 mt-5"
+        src={gyldendallogo}
+        alt="Gyldendal Logo"
       />
 
-      <Overskrift tekst="LOG IND" /> {/* Overskrift-komponenten bruges til at vise titlen "LOG IND" */ }
+      <Overskrift tekst="LOG IND" />
 
-      <section className="flex flex-col mx-[12.5%] my-8"> {/* Flexbox bruges til at arrangere indholdet i en kolonne med margin på 12.5% fra siderne og 8px fra toppen og bunden */ }
-        <form className="flex flex-col gap-6"> {/* Formularen er en kolonne med mellemrum imellem hvert element */ }
+      <section className="flex flex-col mx-[12.5%] my-8">
+        <form className="flex flex-col gap-6" onSubmit={handleLogin}>
           <aside>
-            <label htmlFor="brugernavn" className="text-lg mb-2"> {/* Label for inputfeltet, der angiver, at det er til brugernavn */ }
+            <label htmlFor="email" className="text-lg mb-2">
               Brugernavn
             </label>
             <input
-              className="w-full h-12 border px-3 rounded" // Inputfeltet har en bredde på 100%, en højde på 48px, en kant og padding på 12px
-              type="text" // Inputfeltet er af typen tekst
-              placeholder="Indtast brugernavn" // Pladsholdertekst, der vises i inputfeltet, når det er tomt
-              required // Angiver, at dette felt er obligatorisk at udfylde
+              className="w-full h-12 border px-3 rounded"
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Indtast email"
+              required
             />
           </aside>
 
           <aside>
-            <label className="text-lg mb-2"> {/* Label for adgangskode-inputfeltet */ }
-              Adgangskode
-            </label>
+            <label className="text-lg mb-2">Adgangskode</label>
             <input
-              className="w-full h-12 border px-3 rounded" // Inputfeltet har samme styling som brugernavn-inputfeltet
-              type="password" // Inputfeltet er af typen adgangskode, hvilket skjuler indtastede tegn
-              placeholder="Indtast adgangskode" // Pladsholdertekst for adgangskode-inputfeltet
-              required // Angiver, at dette felt også er obligatorisk at udfylde
+              className="w-full h-12 border px-3 rounded"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Indtast adgangskode"
+              required
             />
           </aside>
+
+          <aside className="mt-[5%] flex justify-center items-center">
+            <button type="submit">
+              <CallToActionKnap tekst={"LOG IND"} />
+            </button>
+          </aside>
         </form>
-        <aside className="mt-[5%] flex justify-center items-center">
-        <CallToActionKnap tekst={"LOG IND"} til="/" /> {/* En komponent, der repræsenterer en opfordring til handling-knap */ }
-        </aside>
-        <aside className="flex flex-col text-center gap-6 mt-[10%]"> {/* En aside, der centrerer teksten og giver mellemrum mellem elementerne */ }
-          <p className="text-[20px] underline">Glemt kodeord?</p> {/* Understreget tekst for at indikere, at dette er et link eller en handling */ }
-          <p className="text-[20px] underline">Ikke medlem? Opret dig</p> {/* Understreget tekst for at indikere, at dette er et link eller en handling */ }
+
+        <aside className="flex flex-col text-center gap-6 mt-[10%]">
+          <p className="text-[20px] underline">Glemt kodeord?</p>
+          <p className="text-[20px] underline">Ikke medlem? Opret dig</p>
         </aside>
       </section>
     </section>
