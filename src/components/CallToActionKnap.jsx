@@ -18,7 +18,7 @@ export default function CallToActionKnap({ tekst, onClick, til }) {
   return (
     <button
       type="button"
-      className="themable px-6 py-2 border rounded"
+      className="themable px-6 py-2 border rounded mb-[6%] md:text-3xl"
       onClick={handleClick}
     >
       {tekst}

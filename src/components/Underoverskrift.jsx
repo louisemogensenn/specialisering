@@ -3,7 +3,7 @@ import React from "react";
 export default function Underoverskrift({ tekst }) {
   return (
     <>
-      <p className="text-[12px] mx-[12.5%] font-bold mb-[15px] md:text-2xl">
+      <p className="text-[12px] mx-[12.5%] font-bold mb-[15px] md:text-[18px]">
         {tekst}
       </p>{" "}
       {/* Tekststørrelsen er 12px og er fed. På større skærme er teksten 24px */}

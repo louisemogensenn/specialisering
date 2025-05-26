@@ -14,8 +14,8 @@ import LogInd from "./views/LogInd";
 import UdforskAlleForloeb from "./views/UdforskAlleForloeb";
 import SofiesVerdenKlasse from "./views/SofiesVerdenKlasse";
 import Elev from "./views/Elev";
-
-import ProtectedRoute from "./components/ProtectedRoute"; // 👈 husk korrekt sti!
+import ProtectedRoute from "./components/ProtectedRoute";
+import Filosofi from "./views/Filosofi";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/hulen",
         element: <Hulen />,
+      },
+      {
+        path: "/filosofi",
+        element: <Filosofi />,
       },
       {
         path: "/shop",

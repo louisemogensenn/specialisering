@@ -61,13 +61,8 @@ export default function Hovedpersonen() {
       <aside className="flex justify-center mt-[5%]">
         {" "}
         {/* Justerer knappen til at være centreret */}
-        <button
-          type="button"
-          className="themable text-2xl border px-6 py-1 w-fit mb-3 rounded" // Styler knappen med en tema, tekststørrelse på 2xl, kant, padding på 24px horisontalt og 4px vertikalt, giver den en bredde der passer til indholdet og en margen i bunden på 12px
-          onClick={handleSubmitClick}
-        >
-          AFLEVER
-        </button>
+        <CallToActionKnap tekst="AFLEVER" onClick={handleSubmitClick} />
+        {/* Knap der kalder handleSubmitClick funktionen når den klikkes */}
       </aside>
 
       {visPopup && (
