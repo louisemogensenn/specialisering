@@ -21,7 +21,7 @@ export default function Tegn() {
     <>
       <Overskrift tekst={"TEGN"} /> {/* Overskrift for siden */}
       <Lydafspiller /> {/* Lydafspiller komponent, der afspiller en lydfil */}
-      <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px]">
+      <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px] md:text-2xl">
         I filosofien har vi hørt om Platons hule – en fortælling om nogle
         mennesker, der kun kan se skygger på en væg og tror, det er hele
         virkeligheden. <br /> <br /> Tegn, hvordan du forestiller dig hulen og

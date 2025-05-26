@@ -14,8 +14,8 @@ export default function SofiesVerden() {
   const [aabenHulen, setAabenHulen] = useState(false);
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
   const { role } = useAuth();
-  const { completedTasks } = useProgress();
-  const erHovedpersonenLøst = completedTasks.includes("hovedpersonen");
+  const { faerdigeOpgaver } = useProgress();
+  const erHovedpersonenLøst = faerdigeOpgaver.includes("hovedpersonen");
 
   if (!role) {
     return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket

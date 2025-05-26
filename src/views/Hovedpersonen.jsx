@@ -11,11 +11,11 @@ export default function Hovedpersonen() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
   const [beskrivelse, setBeskrivelse] = useState(""); // State for at gemme beskrivelsen af hovedpersonen - svar 2
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-  const { completeTask } = useProgress();
+  const { faerdiggoerOpgaver } = useProgress();
   const navigate = useNavigate();
 
   const handleFinalSubmit = () => {
-    completeTask("hovedpersonen", 100); // navn og point
+    faerdiggoerOpgaver("hovedpersonen", 100); // navn og point
     navigate("/point"); // evt. brug useNavigate()
   };
 
