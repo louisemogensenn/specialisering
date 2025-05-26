@@ -6,15 +6,25 @@ import Knap from "../components/Knap";
 import pil from "../assets/pil.svg"; // Importerer pil-ikonet
 import { useState } from "react"; // Importerer useState for at håndtere komponentens tilstand
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
+import { useAuth } from "../context/AuthContext"; // Importerer AuthContext for at få adgang til brugerens rolle
 
 export default function SofiesVerden() {
   const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false);
   const [aabenHulen, setAabenHulen] = useState(false);
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
 
+  const { role } = useAuth();
+
+  if (!role) {
+    return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
+  }
+  
+
   return (
     <>
-      <Overskrift tekst={"SOFIES VERDEN"} /> {/* Overskrift for siden */}
+    <Overskrift tekst={"SOFIES VERDEN"} /> {/* Overskrift for siden */}
+    {role === "elev" && (
+      <>
       <Beskrivelse tekst={"Her er en oversigt over dine opgaver."} />{" "}
       {/* Beskrivelse af siden */}
       <Underoverskrift tekst={"Opgaver"} />{" "}
@@ -34,10 +44,12 @@ export default function SofiesVerden() {
       {/* Knap, der linker til Quiz og viser point */}
       <Knap til="/tegn" tekst={"Tegn"} point="100 POINT"></Knap>{" "}
       {/* Knap, der linker til Tegn og viser point */}
-      <section>
-        <Overskrift tekst={"SOFIES VERDEN"} />{" "}
-        {/* Overskrift for Sofies Verden */}
-        <Beskrivelse
+      <section></section>
+      </>
+    )}
+    {role === "underviser" && (
+      <>
+      <Beskrivelse
           tekst={
             "I dette forløb møder eleverne Sofie, en helt almindelig pige, der en dag modtager et mystisk brev med spørgsmålet: Hvem er du? Det bliver starten på en rejse gennem filosofiens historie, hvor de lærer om store tænkere som Sokrates, Platon og Descartes.Eleverne arbejder med undren, identitet og store spørgsmål om livet. De læser uddrag, ser klip og diskuterer deres egne tanker.  Forløbet styrker både læseforståelse og evnen til at reflektere – og giver dem sprog til at tænke over, hvem de selv er."
           }
@@ -177,7 +189,8 @@ export default function SofiesVerden() {
             </article>
           </aside>
         )}
-      </section>
+      </>
+    )}
     </>
   );
 }

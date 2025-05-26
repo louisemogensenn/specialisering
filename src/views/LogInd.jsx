@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
-
 import Overskrift from "../components/Overskrift";
 import gyldendallogo from "../assets/gyldendal.svg";
 import CallToActionKnap from "../components/CallToActionKnap";
+import { useAuth } from "../context/AuthContext"; // Importer AuthContext for at få adgang til brugerens rolle
 
 export default function LogInd() {
+  const { setCurrentUser, setUserRole } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ export default function LogInd() {
     e.preventDefault();
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const uid = userCredential.user.uid;
 
       // Hent rolle fra Firestore
@@ -28,8 +33,10 @@ export default function LogInd() {
         const role = docSnap.data().role;
         console.log("Brugerens rolle:", role);
 
-        // Naviger til en rollebaseret side
-        navigate("/", { state: { role } }); // eller gem i context/global state
+        setCurrentUser(userCredential.user); // opdater context
+        setUserRole(role); // opdater context
+
+        navigate("/mineforloeb"); // naviger uden state, fordi rolle nu er i context
       } else {
         alert("Brugerens rolle blev ikke fundet.");
       }

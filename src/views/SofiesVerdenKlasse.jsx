@@ -17,7 +17,7 @@ export default function SofiesVerdenKlasse() {
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
             <p>Anne Hansen</p>
-            <img className="rotate-90" src={pil} alt="Åbn-pil" />
+            <img src={pil} alt="Åbn-pil" />
           </article>
         </section>
       </Link>
@@ -26,7 +26,7 @@ export default function SofiesVerdenKlasse() {
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
             <p>Benny Jørgensen</p>
-            <img className="rotate-90" src={pil} alt="Åbn-pil" />
+            <img src={pil} alt="Åbn-pil" />
           </article>
         </section>
       </Link>
@@ -35,7 +35,7 @@ export default function SofiesVerdenKlasse() {
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
             <p>Clara Sørensen</p>
-            <img className="rotate-90" src={pil} alt="Åbn-pil" />
+            <img src={pil} alt="Åbn-pil" />
           </article>
         </section>
       </Link>

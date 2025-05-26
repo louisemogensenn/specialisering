@@ -17,13 +17,23 @@ import UdforskAlleForloeb from "./views/UdforskAlleForloeb";
 import SofiesVerdenKlasse from "./views/SofiesVerdenKlasse";
 import Elev from "./views/Elev";
 
+import ProtectedRoute from "./components/ProtectedRoute"; // 👈 husk korrekt sti!
+
 const router = createBrowserRouter([
   {
+    path: "/", // 👈 login er åben for alle
+    element: <LogInd />,
+  },
+  {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
-        index: true,
+        path: "/mineforloeb",
         element: <MineForloeb />,
       },
       {
@@ -40,18 +50,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/hulen",
-        element: <Hulen />
+        element: <Hulen />,
       },
       {
         path: "/indstillinger",
         element: <Indstillinger />,
       },
       {
-        path: "shop",
+        path: "/shop",
         element: <Shop />,
       },
       {
-        path: "point",
+        path: "/point",
         element: <Point />,
       },
       {
@@ -67,21 +77,17 @@ const router = createBrowserRouter([
         element: <Tegn />,
       },
       {
-        path: "/logind",
-        element: <LogInd />,
-      },
-      {
         path: "/udforskalleforloeb",
         element: <UdforskAlleForloeb />,
       },
       {
         path: "/sofiesverdenklasse",
-        element: <SofiesVerdenKlasse />, 
-      }, 
+        element: <SofiesVerdenKlasse />,
+      },
       {
         path: "/elev",
-        element: <Elev/>
-      }
+        element: <Elev />,
+      },
     ],
   },
 ]);

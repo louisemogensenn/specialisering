@@ -1,34 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { auth } from "../firebase";
 
 export default function Burgermenu() {
+  const { role } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await auth.signOut();
+    navigate("/");
+  };
+
+  if (!role) {
+    return null; // Eller en spinner / "Loading..."
+  }
+
   return (
     <>
-      <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
-        {/* Tekststørrelsen er 24px, elementerne er i felx-column og er placeret i midten. Der er 48px mellem hvert link */}
-        {/* Menu-links */}
-        <Link to="/logind">Log Ind</Link> {/* Link til Logind-siden */}
-        <Link to="/">Se mine forløb</Link> {/* Link til MineForløb-siden */}
-        <Link to="/shop">Gå til shop</Link> {/* Link til Shop-siden */}
-        <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
-        {/* Link til SådanBrugerDuAppen-siden */}
-        <Link to="/indstillinger">Indstillinger</Link>
-        {/* Link til Indstillinger-siden */}
-        <Link to="#">Log ud</Link>
-        {/* Link til Log ud, ingen destination angivet */}
-      </nav>
-
-      <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12">
-        <Link to="/udforskalleforloeb">Udforsk alle forløb</Link>
-        <Link to="/">Se mine forløb</Link>
-      <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
-        {/* Link til SådanBrugerDuAppen-siden */}
-        <Link to="/indstillinger">Indstillinger</Link>
-        {/* Link til Indstillinger-siden */}
-        <Link to="#">Log ud</Link>
-        {/* Link til Log ud, ingen destination angivet */}
-      </nav>
+      {role === "elev" ? (
+        <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
+          <Link to="/">Log Ind</Link>
+          <Link to="/mineforloeb">Se mine forløb</Link>
+          <Link to="/shop">Gå til shop</Link>
+          <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
+          <Link to="/indstillinger">Indstillinger</Link>
+          <button onClick={handleLogout}>Log ud</button>
+        </nav>
+      ) : (
+        <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
+          <Link to="/udforskalleforloeb">Udforsk alle forløb</Link>
+          <Link to="/mineforloeb">Se mine forløb</Link>
+          <Link to="/saadanBrugerDuAppen">Sådan bruger du appen</Link>
+          <Link to="/indstillinger">Indstillinger</Link>
+          <button onClick={handleLogout}>Log ud</button>
+        </nav>
+      )}
     </>
   );
 }

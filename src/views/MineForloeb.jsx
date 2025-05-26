@@ -3,24 +3,36 @@ import Overskrift from "../components/Overskrift";
 import Beskrivelse from "../components/Beskrivelse";
 import Sorter from "../components/Sorter";
 import Knap from "../components/Knap";
+import { useAuth } from "../context/AuthContext";
 
 export default function MineForloeb() {
+  const { role } = useAuth();
+
+  if (!role) {
+    return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
+  }
+
   return (
     <>
-      <Overskrift tekst={"MINE FORLØB"} /> {/* Overskrift for siden */}
-      <Beskrivelse tekst={"Her er en oversigt over dine opgaver"} />{" "}
-      {/* Beskrivelse af siden */}
-      <Knap til="/sofiesverden" tekst="Sofies Verden" />{" "}
-      {/* Knap, der linker til Sofies Verden */}
-      <Overskrift tekst={"MINE FORLØB"} /> {/* Overskrift for siden */}
-      <Beskrivelse
-        tekst={"Her er en oversigt over dine igangværende forløb"}
-      />{" "}
-      <Sorter /> {/* Komponent til sortering af forløb */}
-      <Knap til="/sofiesverdenklasse" tekst="Sofies Verden" point={"5.A"} />{" "}
-      {/* Knap, der linker til forløbet Sofies Verden */}
-      <Knap til="#" tekst="Klods Hans" point={"5.B"} />{" "}
-      {/* Knap, der linker til forløbet Klods Hans */}
+      <Overskrift tekst={"MINE FORLØB"} />
+
+      {role === "elev" && (
+        <>
+          <Beskrivelse tekst={"Her er en oversigt over dine opgaver"} />
+          <Knap til="/sofiesverden" tekst="Sofies Verden" />
+        </>
+      )}
+
+      {role === "underviser" && (
+        <>
+          <Beskrivelse
+            tekst={"Her er en oversigt over dine igangværende forløb"}
+          />
+          <Sorter />
+          <Knap til="/sofiesverdenklasse" tekst="Sofies Verden" point="5.A" />
+          <Knap til="#" tekst="Klods Hans" point="5.B" />
+        </>
+      )}
     </>
   );
 }
