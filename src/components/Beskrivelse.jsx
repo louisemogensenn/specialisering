@@ -3,7 +3,7 @@ import React from "react";
 export default function Beskrivelse({ tekst }) {
   return (
     <>
-      <p className="text-[16px] flex justify-center mx-[12.5%] md:text-[20px]">
+      <p className="text-[16px] flex justify-center text-center mx-[12.5%] md:text-[20px]">
         {tekst}
       </p>{" "}
       {/* Teksten står med 12px og er midtercentreret,  12.5% til kanterne og i medium-skærme (768px) er teksten 24px */}

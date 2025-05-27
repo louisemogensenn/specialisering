@@ -29,8 +29,8 @@ export default function MineForloeb() {
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine forløb"} />
           <br />
+          <Knap til="#" tekst="Anne Franks Dagbog" point="5.B" />
           <Knap til="/sofiesverdenklasse" tekst="Sofies Verden" point="5.A" />
-          <Knap til="#" tekst="Klods Hans" point="5.B" />
         </>
       )}
     </>
