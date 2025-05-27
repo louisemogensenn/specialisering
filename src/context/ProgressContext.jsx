@@ -18,10 +18,10 @@ export const ProgressProvider = ({ children }) => {
     tegn: 100,
   };
 
-  // Hent gemt data fra localStorage ved opstart og beregn point
+  // Hent gemt data fra sessionStorage ved opstart og beregn point
   useEffect(() => {
     const gemteTasks =
-      JSON.parse(localStorage.getItem("faerdigeOpgaver")) || []; // Henter gemte opgaver fra localStorage, eller sætter til tomt array hvis ikke fundet
+      JSON.parse(sessionStorage.getItem("faerdigeOpgaver")) || []; // Henter gemte opgaver fra sessionStorage, eller sætter til tomt array hvis ikke fundet
     setFaerdigeOpgaver(gemteTasks); // Opdaterer state med gemte opgaver
 
     // Beregn point ud fra de færdige opgaver
@@ -36,7 +36,7 @@ export const ProgressProvider = ({ children }) => {
     if (!faerdigeOpgaver.includes(taskName)) {
       const nyeTasks = [...faerdigeOpgaver, taskName]; // Tilføj ny opgave til array
       setFaerdigeOpgaver(nyeTasks); // Opdaterer state
-      localStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gem i localStorage
+      sessionStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gem i sessionStorage
 
       // Beregn point på ny
       const nyePoint = nyeTasks.reduce((sum, task) => {
