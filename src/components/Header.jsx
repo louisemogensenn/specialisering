@@ -25,11 +25,13 @@ export default function Header() {
       )}
 
       {/* Logo */}
-      <img
-        className="w-[150px] h-[30px]"
-        src={gyldendallogo}
-        alt="Gyldendal Logo"
-      />
+      <Link to="/mineforloeb">
+        <img
+          className="w-[150px] h-[30px]"
+          src={gyldendallogo}
+          alt="Gyldendal Logo"
+        />
+      </Link>
 
       {/* Point i cirkel - vises hvis man er elev - ellers vises en tom container */}
       {role === "elev" ? (
