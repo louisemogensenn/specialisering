@@ -73,7 +73,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG FRISUTRE TO */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full"></div>
@@ -88,7 +88,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG FRISURE TRE */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full"></div>
@@ -116,7 +116,7 @@ export default function Shop() {
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I ANSIGT */}
         {/* VÆLG ANSIGT ET */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -131,7 +131,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG ANSIGT TO */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -146,7 +146,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG ANSIGT TRE */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -174,7 +174,7 @@ export default function Shop() {
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I SKO */}
         {/* VÆLG SKO ET */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
@@ -189,7 +189,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG SKO TO */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
@@ -204,7 +204,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG SKO TRE */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
@@ -267,8 +267,9 @@ export default function Shop() {
           <p className="mb-6">
             Du ser sej ud!
           </p>
-          <img src={shopfigur} alt="Billede af brand character" />
+          <img className="mx-auto" src={shopfigur} alt="Billede af brand character" />
           <p>Vil du købe denne vare?</p>
+          <br />
           <section className="flex justify-center gap-6">
             <CallToActionKnap tekst={"TILBAGE"} onClick={handleAfbryd} />
             <CallToActionKnap tekst={"KØB VARE"} onClick={handleKoeb}/>
