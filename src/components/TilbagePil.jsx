@@ -1,17 +1,24 @@
-import React from 'react'
-import pil from '../assets/pil.svg'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import pil from '../assets/pil.svg';
+import { useNavigate } from 'react-router-dom';
 
-export default function TilbagePil() {
+export default function TilbagePil({ destination = -1 }) {
+  const navigation = useNavigate();
 
-  const navigation = useNavigate(); // useNavigate er en hook fra react-router-dom, der giver mulighed for at navigere i applikationen
-
-  const gaaTilbage = () => { // En funktion, der kaldes, når brugeren klikker på tilbagepilen
-    navigation(-1); // Når denne funktion kaldes, navigeres der tilbage til den forrige side som brugeren var på
-  }
+  const gaaTilbage = () => {
+    if (destination === -1) {
+      navigation(-1);
+    } else {
+      navigation(destination);
+    }
+  };
 
   return (
-      <img onClick={gaaTilbage} className='rotate-180 ml-[12.5%]' src={pil} alt="Tilbagepil" />
-  // Pilen får klik-funktionen tilføjet og roteres 180 grader, så den peger mod venstre. Den er placeret 12.5% fra venstre kant af skærmen
-  )
+    <img
+      onClick={gaaTilbage}
+      className='rotate-180 ml-[12.5%] cursor-pointer'
+      src={pil}
+      alt="Tilbagepil"
+    />
+  );
 }

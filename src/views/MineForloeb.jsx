@@ -19,15 +19,15 @@ export default function MineForloeb() {
       {role === "elev" && (
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine opgaver"} />
+          <br />
           <Knap til="/sofiesverden" tekst="Sofies Verden" />
         </>
       )}
 
       {role === "underviser" && (
         <>
-          <Beskrivelse
-            tekst={"Her er en oversigt over dine igangværende forløb"}
-          />
+          <Beskrivelse tekst={"Her er en oversigt over dine igangværende forløb"} />
+          <br />
           <Sorter />
           <Knap til="/sofiesverdenklasse" tekst="Sofies Verden" point="5.A" />
           <Knap til="#" tekst="Klods Hans" point="5.B" />

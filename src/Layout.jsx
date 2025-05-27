@@ -11,18 +11,17 @@ export default function Layout() {
   const path = nuvaerendeLokation.pathname;
 
   const siderUdenPil = [
-    "/",
+    "/mineforloeb",
     "/shop",
-    "/indstillinger",
-    "/saadanBrugerDuAppen",
     "/logud",
     "/burgermenu",
     "/logind",
-    "/point"
+    "/point",
+    "/shop"
   ];
 
   useEffect(() => {
-    const tema = localStorage.getItem("tema") || ""; // Hent tema fra localStorage, eller brug en tom streng som standard
+    const tema = sessionStorage.getItem("tema") || ""; // Hent tema fra sessionStorage, eller brug en tom streng som standard
     document.body.classList.add(`tema-${tema}`); // Tilføj tema-klassen til body
   }, []);
 
@@ -32,7 +31,7 @@ export default function Layout() {
 
       {path !== "/logind" && <Header />}
 
-      {!siderUdenPil.includes(path) && <TilbagePil />}
+      {!siderUdenPil.includes(path) && <TilbagePil destination={ path === "/sofiesverden" ? "/mineforloeb" : pilTilSofiesVerden.includes(path) ? "/sofiesverden" : -1 }/>}
 
       <main>
         <Outlet></Outlet>

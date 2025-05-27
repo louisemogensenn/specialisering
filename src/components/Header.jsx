@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     
-    <header className="flex items-center justify-between px-[12.5%] py-[25px] mb-[10%] md:mb-[5%]"> 
+    <header className="flex items-center justify-between px-[12.5%] py-[25px] mb-[10%] border md:mb-[5%]"> 
       {" "}
       {/* Elementerne er i flex og placeres med plads imellem sig med 12.5%s afstand til sidene, derudover en afstand på 50px til toppen, 10% til bunden og baggrundsfarven nedarves */}
       {/* Burger eller kryds */}
