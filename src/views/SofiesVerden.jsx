@@ -8,17 +8,27 @@ import { useState } from "react"; // Importerer useState for at håndtere kompon
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
 import { useAuth } from "../context/AuthContext"; // Importerer AuthContext for at få adgang til brugerens rolle
 import { useProgress } from "../context/ProgressContext"; // Importerer ProgressContext for at få adgang til opgaver
+import { useNavigate } from "react-router-dom"; // Importerer useNavigate for at navigere til en anden side
 
 export default function SofiesVerden() {
   const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false);
   const [aabenHulen, setAabenHulen] = useState(false);
   const [aabenFilosofi, setAabenFilosofi] = useState(false);
   const [aabenTidsrejse, setAabenTidsrejse] = useState(false);
+
   const [aabenQuiz, setAabenQuiz] = useState(false);
   const [aabenTegn, setAabenTegn] = useState(false);
+  const [klasse, setKlasse] = useState(""); // State for at gemme valgt klasse
+  const [elev, setElev] = useState(""); // State for at gemme valgt elev
+
+  const navigate = useNavigate(); // Hook til at navigere til en anden side
+
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
+  const [opretPopup, setOpretPopup] = useState(false); // State for at styre visning af opret-popup
+
   const { role } = useAuth();
   const { faerdigeOpgaver } = useProgress();
+
   const erHovedpersonenLøst = faerdigeOpgaver.includes("hovedpersonen");
   const erHulenLøst = faerdigeOpgaver.includes("hulen");
   const erFilosofiLøst = faerdigeOpgaver.includes("filosofi");
@@ -28,6 +38,19 @@ export default function SofiesVerden() {
 
   if (!role) {
     return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
+  }
+
+  const handleAfbryd = () => {
+    setVisPopup(false); // Lukker popup uden at ændre noget
+  };
+
+  const handleOpret = () => {
+    setVisPopup(false); // Lukker popup
+    setOpretPopup(true);
+
+    setTimeout(() => {
+      navigate("/mineforloeb");
+    }, 3000); // 3000 ms = 3 sekunder
   }
 
   return (
@@ -370,36 +393,69 @@ export default function SofiesVerden() {
               aria-modal="true"
               role="dialog"
             >
-              <article className="themable p-8 rounded max-w-sm mx-4 text-center border">
-                <h1>Sofies Verden</h1>
-                <p>
-                  Du er ved at oprette forløbet "Sofies Verden". <br /> Hvem
+              <article className="bg-white p-8 rounded max-w-sm mx-4 border">
+                <h1 className="text-3xl text-center">Sofies Verden</h1>
+                <p className="text-center">
+                  Du er ved at oprette forløbet <br /> "Sofies Verden". <br />Hvem
                   ønsker du at oprette forløbet for?
                 </p>
-                <form className="flex flex-col justify-start">
-                  <aside>
-                    <input type="radio" />
-                    <label>5.A</label>
-                  </aside>
-                  <aside>
-                    <input type="radio" />
-                    <label>5.B</label>
-                  </aside>
-                  <aside>
-                    <input type="radio" />
-                    <label>8.B</label>
-                  </aside>
-                  <aside>
-                    <input type="radio" />
-                    <label>8.C</label>
-                  </aside>
-                </form>
+                <br />
+                <p className="font-bold">Vælg klasse</p>
+                <aside>
+                  <select
+                    value={klasse}
+                    onChange={(e) => setKlasse(e.target.value)}
+                    style={{ padding: "8px", fontSize: "16px" }}
+                  >
+                    <option value="" disabled>
+                      Intet valgt
+                    </option>
+                    <option value="5.a">5.a</option>
+                    <option value="5.b">5.b</option>
+                    <option value="8.b">8.b</option>
+                    <option value="8.c">8.c</option>
+                  </select>
+                </aside>
+                <br />
+                <p className="font-bold">Vælg elever</p>
+                <aside >
+                  <select
+                    value={elev}
+                    onChange={(e) => setElev(e.target.value)}
+                    style={{ padding: "8px", fontSize: "16px" }}
+                  >
+                    <option value="" disabled>
+                      Intet valgt
+                    </option>
+                    <option value="alle">Alle</option>
+                    <option value="anne">Anne Hansen</option>
+                    <option value="bente">Bente Bentsen</option>
+                    <option value="emil">Emil Jørgensen</option>
+                    <option value="freja">Freja Sørensen</option>
+                    <option value="katja">Katja Kaysen</option>
+                  </select>
+                </aside>
+                <br />
                 <section className="flex justify-center gap-6">
-                  <CallToActionKnap tekst={"AFBRYD"} />
-                  <CallToActionKnap tekst={"NÆSTE"} />
+                  <CallToActionKnap tekst={"AFBRYD"} onClick={handleAfbryd} />
+                  <CallToActionKnap tekst={"OPRET"} onClick={handleOpret}/>
                 </section>
               </article>
             </aside>
+          )}
+
+          {opretPopup && (
+            <aside
+            className="fixed inset-0 flex items-center justify-center z-50"
+            aria-modal="true"
+            role="dialog"
+          >
+            <article className="p-8 rounded max-w-sm mx-4 text-center border bg-white">
+              <h1 className="text-3xl">Dit forløb er oprettet.</h1>
+              <br />
+              <p> Du sendes nu til "Mine Forløb".</p>
+            </article>
+          </aside>
           )}
         </>
       )}
