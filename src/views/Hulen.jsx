@@ -39,6 +39,7 @@ export default function Hulen() {
   const handleCancel = () => {
     setVisPopup(false); // Lukker popup uden at ændre noget
   };
+  
   return (
     <>
       <Overskrift tekst={"HULEN"} />
