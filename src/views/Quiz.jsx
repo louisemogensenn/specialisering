@@ -84,7 +84,7 @@ export default function Quiz() {
           </label>
         </fieldset>
         <br />
-        <fieldset>
+        <fieldset className="text-[12px] md:text-[15px]">
           <h1 className="font-bold text-[14px] md:text-[18px]">
             Hvad handler Platons hule-historie om?
           </h1>
@@ -129,7 +129,7 @@ export default function Quiz() {
           </label>
         </fieldset>
         <br />
-        <fieldset>
+        <fieldset className="text-[12px] md:text-[15px]">
           <h1 className="font-bold text-[14px] md:text-[18px]">
             Hvad mente Platon om sjælen og kroppen?
           </h1>
@@ -174,7 +174,7 @@ export default function Quiz() {
           </label>
         </fieldset>
         <br />
-        <fieldset>
+        <fieldset className="text-[12px] md:text-[15px]">
           <h1 className="font-bold text-[14px] md:text-[18px]">
             Hvor kommer vores viden ifølge Platon fra?
           </h1>
