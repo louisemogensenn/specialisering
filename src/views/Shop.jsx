@@ -43,17 +43,31 @@ export default function Shop() {
     <>
       <section className="mb-[20%]">
         <Overskrift tekst={"HEJ!"} />
-        <Beskrivelse tekst={"Mit navn er Lumo -  og jeg glæder mig til at lære en masse sammen med dig!"} />
+        <Beskrivelse
+          tekst={
+            "Mit navn er Lumo -  og jeg glæder mig til at lære en masse sammen med dig!"
+          }
+        />
         <img
           src={shopfigur}
           alt="Brand Character"
-          className="mx-auto mb-[10%] mt-[10%] w-[200px]"
+          className="mx-auto mb-[10%] mt-[10%] w-[200px] md:w-[400px]"
         />
-        <p className="mx-[12.5%] text-[16px] md:text-[20px]">Jeg har ikke en fast definition på rigtig og forkert, fordi jeg tror på, at sandheden og moral formes hos dig. <br /> Jeg har derfor ingen fast form, frisure eller påklædning. Dog har jeg to store øjne, der fungerer som spejle. De reflekterer ikke verden, men din måde at se den på. <br /> Derfor vil jeg lade det være op til dig - <span className="font-bold">Hvordan synes du jeg skal se ud?</span></p>
+        <p className="mx-[12.5%] text-[16px] md:text-[20px]">
+          Jeg har ikke en fast definition på rigtig og forkert, fordi jeg tror
+          på, at sandheden og moral formes hos dig. <br /> Jeg har derfor ingen
+          fast form, frisure eller påklædning. Dog har jeg to store øjne, der
+          fungerer som spejle. De reflekterer ikke verden, men din måde at se
+          den på. <br /> Derfor vil jeg lade det være op til dig -{" "}
+          <span className="font-bold">Hvordan synes du jeg skal se ud?</span>
+        </p>
       </section>
 
       <Overskrift tekst={"SHOP"} />
-      <p className="mx-[12.5%]">Velkommen til shoppen! Her kan du selv bestemme designet for din app. Optjen point ved at løse opgaver og lås op for nye seje features!</p>
+      <p className="mx-[12.5%]">
+        Velkommen til shoppen! Her kan du selv bestemme designet for din app.
+        Optjen point ved at løse opgaver og lås op for nye seje features!
+      </p>
       <br />
       <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Frisure</h1>
       <p className="mx-[12.5%] text-[12px] md:text-[20px]">
@@ -83,10 +97,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG FRISUTRE TO */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full"></div>
@@ -101,10 +112,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG FRISURE TRE */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full"></div>
@@ -134,10 +142,7 @@ export default function Shop() {
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I ANSIGT */}
         {/* VÆLG ANSIGT ET */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -152,10 +157,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG ANSIGT TO */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -170,10 +172,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG ANSIGT TRE */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[80%] bg-[#d9d9d9] rounded-bl-[55%_90%] rounded-br-[55%_90%] rotate-180"></div>
@@ -201,10 +200,7 @@ export default function Shop() {
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I SKO */}
         {/* VÆLG SKO ET */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
@@ -219,10 +215,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG SKO TO */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
@@ -237,10 +230,7 @@ export default function Shop() {
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
         </aside>
         {/* VÆLG SKO TRE */}
-        <aside
-          className="flex flex-col items-center"
-          onClick={() => setPopup(true)}
-        >
+        <aside className="flex flex-col items-center">
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i toppen */}
             <div className="absolute top-0 rotate-180 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full z-50"></div>
