@@ -33,7 +33,8 @@ export default function SofiesVerden() {
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine opgaver."} />{" "}
           {/* Beskrivelse af siden */}
-          <Underoverskrift tekst={"Opgaver"} />{" "}
+          <br />
+          <Underoverskrift tekst={"Opgaver"} />
           {/* Underoverskrift for kapitler */}
           <Knap
             til={erHovedpersonenLøst ? "#" : "/hovedpersonen"}
@@ -59,6 +60,8 @@ export default function SofiesVerden() {
             point="400 POINT"
             disabled={erTidsrejseLøst}
           />
+          <br />
+          <Underoverskrift tekst={"Ekstraopgaver"} />
           <Knap
             til={erQuizLøst ? "#" : "/quiz"}
             tekst="Quiz"

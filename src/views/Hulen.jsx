@@ -33,6 +33,7 @@ export default function Hulen() {
   return (
     <>
       <Overskrift tekst={"HULEN"} />
+      <br />
       <Lydafspiller />
       <br />
       <Beskrivelse

@@ -4,6 +4,7 @@ import Beskrivelse from "../components/Beskrivelse";
 import Sorter from "../components/Sorter";
 import Knap from "../components/Knap";
 import { useAuth } from "../context/AuthContext";
+import Underoverskrift from "../components/Underoverskrift";
 
 export default function MineForloeb() {
   const { role } = useAuth();
@@ -20,6 +21,7 @@ export default function MineForloeb() {
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine opgaver"} />
           <br />
+          <Underoverskrift tekst={"Forløb"} />
           <Knap til="/sofiesverden" tekst="Sofies Verden" />
         </>
       )}

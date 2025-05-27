@@ -9,11 +9,11 @@ export default function Knap({ til, tekst, point, disabled = false }) {
   return (
     <Link
       to={til} // Linket fører til den sti, der angives i til
-      className={`themable text-[20px] p-3 border flex justify-between mx-[12.5%] mb-[30px] bg-[inherit] rounded md:text-3xl transition-all duration-200
+      className={`themable text-[20px] md:text-3xl p-3 border flex justify-between mx-[12.5%] mb-[30px] rounded  transition-all duration-200
         ${
           disabled
             ? "opacity-40 pointer-events-none cursor-not-allowed" // Hvis knappen er deaktiveret, bliver den mere transparent, kan ikke klikkes på, og musen ændres til en forbudt cursor
-            : "" // Ellers får den en lysere baggrund ved hover
+            : ""
         }
       `}
     >

@@ -31,7 +31,7 @@ export default function Layout() {
 
       {path !== "/logind" && <Header />}
 
-      {!siderUdenPil.includes(path) && <TilbagePil destination={ path === "/sofiesverden" ? "/mineforloeb" : pilTilSofiesVerden.includes(path) ? "/sofiesverden" : -1 }/>}
+      {!siderUdenPil.includes(path) && <TilbagePil destination={ path === "/sofiesverden" ? "/mineforloeb" :  -1 }/>}
 
       <main>
         <Outlet></Outlet>

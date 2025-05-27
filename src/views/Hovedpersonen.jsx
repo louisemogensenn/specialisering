@@ -35,6 +35,7 @@ export default function Hovedpersonen() {
   return (
     <>
       <Overskrift tekst={"HOVEDPERSONEN"} />
+      <br />
       <Lydafspiller />
       <h1 className="text-[20px] mb-[2%] mx-[12.5%] mt-[4%]">Opgave 1</h1>
       <Underoverskrift tekst={"Hvad hedder hovedpersonen?"} />

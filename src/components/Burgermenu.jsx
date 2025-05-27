@@ -20,7 +20,6 @@ export default function Burgermenu() {
     <>
       {role === "elev" ? (
         <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
-          <Link to="/">Log Ind</Link>
           <Link to="/mineforloeb">Se mine forløb</Link>
           <Link to="/shop">Gå til shop</Link>
           <Link to="#">Indstillinger</Link>

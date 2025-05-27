@@ -20,6 +20,7 @@ export default function Tegn() {
   return (
     <>
       <Overskrift tekst={"TEGN"} /> {/* Overskrift for siden */}
+      <br />
       <Lydafspiller /> {/* Lydafspiller komponent, der afspiller en lydfil */}
       <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px] md:text-2xl">
         I filosofien har vi hørt om Platons hule – en fortælling om nogle
@@ -30,12 +31,12 @@ export default function Tegn() {
         uploade det.
       </p>{" "}
       {/* Beskrivelse af opgaven med margin til siderne og toppen samt mindre tekststørrelse */}
-      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl">
+      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl rounded">
         {" "}
         {/* Flexbox bruges til at centrere indholdet, og der er padding, kant og margin for at give afstand til siderne og bunden */}
         <svg
-          width="36"
-          height="25"
+          width="30"
+          height="18"
           viewBox="0 0 36 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@ export default function Tegn() {
           <line y1="24.5" x2="36" y2="24.5" stroke="black" />
           <line x1="18.5" y1="1" x2="18.5" y2="21" stroke="black" />
         </svg>
-        <p className="flex-1 text-center">Upload</p>{" "}
+        <p className="flex-1 text-center text-[20px]">Upload</p>{" "}
         {/* Tekst centreret i flexboxen, der beskriver upload-handlingen */}
       </aside>
       <section className="flex justify-center items-center">
