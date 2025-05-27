@@ -15,6 +15,7 @@ export default function Elev() {
   const { svarData } = useProgress(); // Bruges til at indsætte svar. Svarene hentes fra ProgressContext, som indeholder data om elevens besvarelser
   const hovedpersonSvar = svarData?.["hovedpersonen"]; // Henter besvarelsen for hovedpersonen fra svarData. Undersøger, om svarData eksisterer, og hvis det gør, henter den besvarelsen for hovedpersonen
   const hulenSvar = svarData?.["hulen"]?.svar || "Intet at vise";
+  const filosofiSvar = svarData?.["filosofi"]; // Henter besvarelsen for filosofi fra svarData. Hvis der ikke er nogen besvarelse, vises "Intet at vise"
 
   return (
     <>
@@ -114,7 +115,7 @@ export default function Elev() {
               <p>Filosofi</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenHulen ? "rotate-270" : "rotate-90"
+                  aabenFilosofi ? "rotate-270" : "rotate-90"
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -138,7 +139,7 @@ export default function Elev() {
                 <textarea
                   readOnly
                   className="w-full border p-4 h-20 rounded"
-                  placeholder="Skriv din besvarelse her..."
+                  value={filosofiSvar?.opgaveEt || "Intet at vise"}
                 ></textarea>
                 <p className="font-bold">
                   Find en ven eller klassekammerat og diskuter jeres svar. Kan I
@@ -147,7 +148,7 @@ export default function Elev() {
                 <textarea
                   readOnly
                   className="w-full border p-4 h-20 rounded"
-                  placeholder="Skriv din besvarelse her..."
+                  value={filosofiSvar?.opgaveTo || "Intet at vise"}
                 ></textarea>
                 <p className="font-bold">
                   Kan vi nogensinde helt forstå, hvem vi er?
@@ -155,7 +156,7 @@ export default function Elev() {
                 <textarea
                   readOnly
                   className="w-full border p-4 h-20 rounded"
-                  placeholder="Skriv din besvarelse her..."
+                  value={filosofiSvar?.opgaveTre || "Intet at vise"}
                 ></textarea>
                 <p className="font-bold">
                   Er vi bestemt af vores fortid, eller kan vi selv bestemme,
@@ -164,7 +165,7 @@ export default function Elev() {
                 <textarea
                   readOnly
                   className="w-full border p-4 h-20 rounded"
-                  placeholder="Skriv din besvarelse her..."
+                  value={filosofiSvar?.opgaveFire || "Intet at vise"}
                 ></textarea>
                 <p className="font-bold">
                   Hvad betyder det at have en fri vilje?
@@ -172,7 +173,7 @@ export default function Elev() {
                 <textarea
                   readOnly
                   className="w-full border p-4 h-20 rounded"
-                  placeholder="Skriv din besvarelse her..."
+                  value={filosofiSvar?.opgaveFem || "Intet at vise"}
                 ></textarea>
               </section>
             </div>

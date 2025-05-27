@@ -14,17 +14,19 @@ export default function Filosofi() {
   const [opgaveFire, setOpgaveFire] = useState(""); // State for at gemme brugerens svar på opgave 4
   const [opgaveFem, setOpgaveFem] = useState(""); // State for at gemme brugerens svar på opgave 5
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-  const { faerdiggoerOpgaver } = useProgress();
+  const { faerdiggoerOpgaver, gemSvarData } = useProgress();
   const navigate = useNavigate();
 
   const handleFinalSubmit = () => {
-    faerdiggoerOpgaver("filosofi", 200); // navn og point
-    navigate("/point"); // evt. brug useNavigate()
+    gemSvarData("filosofi", { opgaveEt, opgaveTo, opgaveTre, opgaveFire, opgaveFem }); // Gemmer begge svar
+    faerdiggoerOpgaver("filosofi");
+    navigate("/point");
   };
 
   const handleSubmitClick = () => {
     if (
       opgaveEt === "" ||
+      opgaveTo === "" ||
       opgaveTre === "" ||
       opgaveFire === "" ||
       opgaveFem === ""
