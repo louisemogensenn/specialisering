@@ -128,7 +128,7 @@ export default function Shop() {
             <img
               src={ansigtTo}
               alt="Ansigt to"
-              className="absolute top-[67%] left-1/2 object-contain transform -translate-x-1/2 -translate-y-1/2 md:w-[50%]"
+              className="absolute top-[67%] left-1/2 object-contain transform -translate-x-1/2 -translate-y-1/2 md:w-[70%]"
             />
           </div>
           <p className="text-center text-[10px] md:text-[15px]">100 point</p>
