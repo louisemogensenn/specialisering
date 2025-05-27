@@ -7,12 +7,20 @@ import CallToActionKnap from "../components/CallToActionKnap";
 import { useState } from "react"; // Importerer useState for at håndtere komponentens tilstand
 import { useProgress } from "../context/ProgressContext";
 import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
+import { useEffect } from "react";
 
 export default function Hulen() {
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-  const { faerdiggoerOpgaver } = useProgress();
+  const { faerdiggoerOpgaver, gemSvarData, svarData } = useProgress();
   const navigate = useNavigate();
   const [svar, setSvar] = useState("");
+
+  useEffect(() => {
+    const tidligereSvar = svarData?.hulen?.svar;
+    if (tidligereSvar) {
+      setSvar(tidligereSvar);
+    }
+  }, [svarData]);
 
   const handleFinalSubmit = () => {
     faerdiggoerOpgaver("hulen", 250); // navn og point
@@ -48,7 +56,10 @@ export default function Hulen() {
           required
           className="w-full h-40 border p-4 resize-none rounded" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
-          onChange={(e) => setSvar(e.target.value)} // opdater state ved ændring
+          onChange={(e) => {
+            setSvar(e.target.value);
+            gemSvarData("hulen", { svar: e.target.value });
+          }} // opdater state ved ændring
         ></textarea>
       </aside>
       <p className="text-[12px] mx-[12.5%] md:text-2xl">

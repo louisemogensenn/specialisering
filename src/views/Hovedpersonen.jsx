@@ -6,17 +6,17 @@ import CallToActionKnap from "../components/CallToActionKnap";
 import { useProgress } from "../context/ProgressContext";
 import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
 
-
 export default function Hovedpersonen() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
   const [beskrivelse, setBeskrivelse] = useState(""); // State for at gemme beskrivelsen af hovedpersonen - svar 2
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-  const { faerdiggoerOpgaver } = useProgress();
+  const { faerdiggoerOpgaver, gemSvarData } = useProgress();
   const navigate = useNavigate();
-
+  
   const handleFinalSubmit = () => {
-    faerdiggoerOpgaver("hovedpersonen", 100); // navn og point
-    navigate("/point"); // evt. brug useNavigate()
+    gemSvarData("hovedpersonen", { navn, beskrivelse }); // Gemmer begge svar
+    faerdiggoerOpgaver("hovedpersonen");
+    navigate("/point");
   };
 
   const handleSubmitClick = () => {

@@ -11,9 +11,21 @@ import ansigtTre from "../assets/ansigtTre.svg"; // Importerer ansigt-billedet
 import skoEt from "../assets/skoEt.svg"; // Importerer sko-billedet
 import skoTo from "../assets/skoTo.svg"; // Importerer sko-billedet
 import skoTre from "../assets/skoTre.svg"; // Importerer sko-billedet
+import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
+import shopfigur from "../assets/shopfigur.svg"; // Importerer shop-figuren
 
 export default function Shop() {
   const [tema, setTema] = useState(() => sessionStorage.getItem("tema") || "");
+  const [popup, setPopup] = useState(false); // Tilstand for at vise popup
+
+  const handleKoeb = () => {
+    // Undersøg, om brugeren har point nok til at købe en vare
+    alert("Du har købt varen!"); // Her kan du tilføje logik for at trække point fra brugerens konto
+  };
+
+  const handleAfbryd = () => {
+    setPopup(false); // Lukker popup uden at ændre noget
+  };
 
   // Kør dette hver gang tema ændrer sig
   useEffect(() => {
@@ -46,7 +58,7 @@ export default function Shop() {
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I FRSURE */}
         {/* VÆLG FRISUTRE ET */}
-        <aside className="flex flex-col items-center">
+        <aside className="flex flex-col items-center" onClick={() => setPopup(true)}>
           <div className="w-[75px] h-[75px] border rounded md:w-[100px] md:h-[100px] relative overflow-hidden">
             {/* Halvcirkel i bunden */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[50%] bg-[#d9d9d9] rounded-tl-full rounded-tr-full"></div>
@@ -244,6 +256,27 @@ export default function Shop() {
         {/* Klik på denne sektion ændrer temaet til grønt */}
         <img src={pil} alt="Pil til højre" />
       </section>
+
+      {popup && (
+        <aside
+        className="fixed inset-0 flex items-center justify-center z-50"
+        aria-modal="true"
+        role="dialog"
+      >
+        <article className="themable p-8 rounded max-w-sm mx-4 text-center border bg-white">
+          <p className="mb-6">
+            Du ser sej ud!
+          </p>
+          <img src={shopfigur} alt="Billede af brand character" />
+          <p>Vil du købe denne vare?</p>
+          <section className="flex justify-center gap-6">
+            <CallToActionKnap tekst={"TILBAGE"} onClick={handleAfbryd} />
+            <CallToActionKnap tekst={"KØB VARE"} onClick={handleKoeb}/>
+          </section>
+        </article>
+      </aside>
+      )}
+      
     </>
   );
 }
