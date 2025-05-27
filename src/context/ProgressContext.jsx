@@ -8,27 +8,15 @@ export const ProgressProvider = ({ children }) => {
   const [points, setPoints] = useState(0); // State til at vise point, som beregnes dynamisk
   const [faerdigeOpgaver, setFaerdigeOpgaver] = useState([]); // State til at gemme færdige opgaver i et array
 
-  // Objekt der definerer hvor mange point hver opgave giver
-  const opgavePoint = {
-    hovedpersonen: 100,
-    hulen: 250,
-    filosofi: 200,
-    tidsrejse: 400,
-    quiz: 100,
-    tegn: 100,
-  };
-
   // Hent gemt data fra sessionStorage ved opstart og beregn point
   useEffect(() => {
     const gemteTasks =
       JSON.parse(sessionStorage.getItem("faerdigeOpgaver")) || []; // Henter gemte opgaver fra sessionStorage, eller sætter til tomt array hvis ikke fundet
     setFaerdigeOpgaver(gemteTasks); // Opdaterer state med gemte opgaver
 
-    // Beregn point ud fra de færdige opgaver
-    const beregnedePoint = gemteTasks.reduce((sum, task) => {
-      return sum + (opgavePoint[task] || 0);
-    }, 0);
-    setPoints(beregnedePoint); // Opdaterer point ud fra opgaver
+    // Beregn point: 100 point pr. færdig opgave
+    const beregnedePoint = gemteTasks.length * 100;
+    setPoints(beregnedePoint); // Opdaterer point ud fra antal opgaver
   }, []);
 
   // Funktion til at markere en opgave som færdig og genberegne point
@@ -38,10 +26,8 @@ export const ProgressProvider = ({ children }) => {
       setFaerdigeOpgaver(nyeTasks); // Opdaterer state
       sessionStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gem i sessionStorage
 
-      // Beregn point på ny
-      const nyePoint = nyeTasks.reduce((sum, task) => {
-        return sum + (opgavePoint[task] || 0);
-      }, 0);
+      // Beregn point på ny: 100 point pr. opgave
+      const nyePoint = nyeTasks.length * 100;
       setPoints(nyePoint); // Opdaterer point i state
     }
   };

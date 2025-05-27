@@ -45,19 +45,19 @@ export default function SofiesVerden() {
           <Knap
             til={erHulenLøst ? "#" : "/hulen"}
             tekst="Hulen"
-            point="250 POINT"
+            point="100 POINT"
             disabled={erHulenLøst}
           />
           <Knap
             til={erFilosofiLøst ? "#" : "/filosofi"}
             tekst="Filosofi"
-            point="200 POINT"
+            point="100 POINT"
             disabled={erFilosofiLøst}
           />
           <Knap
             til={erTidsrejseLøst ? "#" : "#"}
             tekst="Tidsrejse"
-            point="400 POINT"
+            point="100 POINT"
             disabled={erTidsrejseLøst}
           />
           <br />
