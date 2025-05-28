@@ -10,7 +10,6 @@ export default function Elev() {
   const [aabenHulen, setAabenHulen] = useState(false); // Bruges til at åbne og lukke sektionen for hulen
   const [aabenFilosofi, setAabenFilosofi] = useState(false); // Bruges til at åbne og lukke sektionen for filosofi
   const [aabenQuiz, setAabenQuiz] = useState(false); // Bruges til at åbne og lukke sektionen for quiz
-  const [aabenTegn, setAabenTegn] = useState(false); // Bruges til at åbne og lukke sektionen for tegning
 
   const { svarData } = useProgress(); // Bruges til at indsætte svar. Svarene hentes fra ProgressContext, som indeholder data om elevens besvarelser
   const hovedpersonSvar = svarData?.["hovedpersonen"]; // Henter besvarelsen for hovedpersonen fra svarData. Undersøger, om svarData eksisterer, og hvis det gør, henter den besvarelsen for hovedpersonen
@@ -22,7 +21,7 @@ export default function Elev() {
       <Overskrift tekst={"Sofies Verden"} />
       <Beskrivelse tekst={"Dette er besvarelser for:"} />
       <aside className="font-bold">
-        <Beskrivelse tekst={"Anne Hansen"} />
+        <Beskrivelse tekst={"Freja Sørensen"} />
       </aside>
 
       <section className="mb-[30px]">

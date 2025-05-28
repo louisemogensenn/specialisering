@@ -9,7 +9,7 @@ export default function MineForloeb() {
   const { role } = useAuth();
 
   if (!role) {
-    return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
+    return <p>Indlæser...</p>;
   }
 
   return (

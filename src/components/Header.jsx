@@ -39,7 +39,6 @@ export default function Header() {
           <section className="themable w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border">
             {points}
           </section>
-          <p className="text-xs mt-1 font-semibold">POINT</p>
         </article>
       ) : (
         <article className="flex flex-col items-center"></article>

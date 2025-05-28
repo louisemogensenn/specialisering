@@ -12,15 +12,20 @@ import skoEt from "../assets/skoEt.svg"; // Importerer sko-billedet
 import skoTo from "../assets/skoTo.svg"; // Importerer sko-billedet
 import skoTre from "../assets/skoTre.svg"; // Importerer sko-billedet
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
-import shopfigur from "../assets/shopfigur.svg"; // Importerer shop-figuren
+import shopfigur from "../assets/popshopfigur.svg"; // Importerer shop-figuren
+import koebtvare from "../assets/koebtvare.svg"; // Importerer billede for købt vare
 
 export default function Shop() {
   const [tema, setTema] = useState(() => sessionStorage.getItem("tema") || "");
   const [popup, setPopup] = useState(false); // Tilstand for at vise popup
+  const [varenKoebt, setVarenKoebt] = useState(false); // <- ny state
 
   const handleKoeb = () => {
-    // Undersøg, om brugeren har point nok til at købe en vare
-    alert("Du har købt varen!"); // Her kan du tilføje logik for at trække point fra brugerens konto
+    setVarenKoebt(true); // Skift indholdet i popup
+    setTimeout(() => {
+      setPopup(false); // Luk popup
+      setVarenKoebt(false); // Nulstil til næste gang popup vises
+    }, 3000);
   };
 
   const handleAfbryd = () => {
@@ -69,12 +74,44 @@ export default function Shop() {
         Optjen point ved at løse opgaver og lås op for nye seje features!
       </p>
       <br />
+
+      {/* SEKTION MED TEMAER */}
+      <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Temaer</h1>
+      <p className="mx-[12.5%] text-[12px] md:text-[20px]">
+        Find din favorit og klik for at købe den
+      </p>
+      <section className="flex justify-between mx-[12.5%]">
+        <img src={pil} alt="Pil til venstre" className="rotate-180" />
+        <aside>
+          <aside
+            onClick={() => setTema("roed")}
+            className="w-[75px] h-[75px] border rounded bg-[#FCF0F0] border-[#d13338] md:w-[100px] md:h-[100px]"
+          ></aside>
+        </aside>
+        {/* Klik på denne sektion ændrer temaet til rødt */}
+        <aside>
+          <aside
+            onClick={() => setTema("gul")}
+            className="w-[75px] h-[75px] border rounded bg-[#FFF8E7] border-[#ffc538] md:w-[100px] md:h-[100px]"
+          ></aside>
+        </aside>
+        {/* Klik på denne sektion ændrer temaet til gult */}
+        <aside>
+          <aside
+            onClick={() => setTema("groen")}
+            className="w-[75px] h-[75px] border rounded bg-[#E7FEF0] border-[#17be55] md:w-[100px] md:h-[100px]"
+          ></aside>
+        </aside>
+        {/* Klik på denne sektion ændrer temaet til grønt */}
+        <img src={pil} alt="Pil til højre" />
+      </section>
+
+      {/* SEKTION MED FRISURE */}
+      <br />
       <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Frisure</h1>
       <p className="mx-[12.5%] text-[12px] md:text-[20px]">
         Find din favorit og klik for at købe den
       </p>
-
-      {/* SEKTION MED FRISURE */}
       <section className="flex justify-between mx-[12.5%]">
         <img src={pil} alt="Pil til venstre" className="rotate-180" />{" "}
         {/* PIL TIL VENSTRE I FRSURE */}
@@ -249,40 +286,6 @@ export default function Shop() {
 
       <br />
 
-      {/* SEKTION MED TEMAER */}
-      <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Temaer</h1>
-      <p className="mx-[12.5%] text-[12px] md:text-[20px]">
-        Find din favorit og klik for at købe den
-      </p>
-      <section className="flex justify-between mx-[12.5%]">
-        <img src={pil} alt="Pil til venstre" className="rotate-180" />
-        <aside>
-          <aside
-            onClick={() => setTema("roed")}
-            className="w-[75px] h-[75px] border rounded bg-[#FCF0F0] border-[#d13338] md:w-[100px] md:h-[100px]"
-          ></aside>
-          <p className="text-center text-[10px] md:text-[15px]">100 point</p>
-        </aside>
-        {/* Klik på denne sektion ændrer temaet til rødt */}
-        <aside>
-          <aside
-            onClick={() => setTema("gul")}
-            className="w-[75px] h-[75px] border rounded bg-[#FFF8E7] border-[#ffc538] md:w-[100px] md:h-[100px]"
-          ></aside>
-          <p className="text-center text-[10px] md:text-[15px]">100 point</p>
-        </aside>
-        {/* Klik på denne sektion ændrer temaet til gult */}
-        <aside>
-          <aside
-            onClick={() => setTema("groen")}
-            className="w-[75px] h-[75px] border rounded bg-[#E7FEF0] border-[#17be55] md:w-[100px] md:h-[100px]"
-          ></aside>
-          <p className="text-center text-[10px] md:text-[15px]">100 point</p>
-        </aside>
-        {/* Klik på denne sektion ændrer temaet til grønt */}
-        <img src={pil} alt="Pil til højre" />
-      </section>
-
       {popup && (
         <aside
           className="fixed inset-0 flex items-center justify-center z-50"
@@ -290,18 +293,33 @@ export default function Shop() {
           role="dialog"
         >
           <article className="themable p-8 rounded max-w-sm mx-4 text-center border bg-white">
-            <p className="mb-6">Du ser sej ud!</p>
-            <img
-              className="mx-auto"
-              src={shopfigur}
-              alt="Billede af brand character"
-            />
-            <p>Vil du købe denne vare?</p>
-            <br />
-            <section className="flex justify-center gap-6">
-              <CallToActionKnap tekst={"TILBAGE"} onClick={handleAfbryd} />
-              <CallToActionKnap tekst={"KØB VARE"} onClick={handleKoeb} />
-            </section>
+            {varenKoebt ? (
+              <>
+                <h1 className="text-xl font-bold mb-4">
+                  Yay! Du har nu købt varen!
+                </h1>
+                <img
+                  className="mx-auto"
+                  src={koebtvare}
+                  alt="Billede af brand character"
+                />
+              </>
+            ) : (
+              <>
+                <p className="mb-6">Du ser sej ud!</p>
+                <img
+                  className="mx-auto"
+                  src={shopfigur}
+                  alt="Billede af brand character"
+                />
+                <p>Vil du købe denne vare?</p>
+                <br />
+                <section className="flex justify-center gap-6">
+                  <CallToActionKnap tekst={"TILBAGE"} onClick={handleAfbryd} />
+                  <CallToActionKnap tekst={"KØB VARE"} onClick={handleKoeb} />
+                </section>
+              </>
+            )}
           </article>
         </aside>
       )}

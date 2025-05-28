@@ -13,7 +13,7 @@ export default function SofiesVerdenKlasse() {
           "Her kan du se besvarelser, proces og mere for de elever, du har tilknyttet forløbet."
         }
       />
-      <Link to="/elev">
+      <Link to="#">
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
             <p>Anne Hansen</p>
@@ -25,7 +25,7 @@ export default function SofiesVerdenKlasse() {
       <Link to="#">
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
-            <p>Benny Jørgensen</p>
+            <p>Bente Bentsen</p>
             <img src={pil} alt="Åbn-pil" />
           </article>
         </section>
@@ -34,7 +34,25 @@ export default function SofiesVerdenKlasse() {
       <Link to="#">
         <section className="mb-[30px]">
           <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
-            <p>Clara Sørensen</p>
+            <p>Emil Jørgensen</p>
+            <img src={pil} alt="Åbn-pil" />
+          </article>
+        </section>
+      </Link>
+
+      <Link to="/elev">
+        <section className="mb-[30px]">
+          <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
+            <p>Freja Sørensen</p>
+            <img src={pil} alt="Åbn-pil" />
+          </article>
+        </section>
+      </Link>
+
+      <Link to="#">
+        <section className="mb-[30px]">
+          <article className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl">
+            <p>Katja Kaysen</p>
             <img src={pil} alt="Åbn-pil" />
           </article>
         </section>

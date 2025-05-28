@@ -4,7 +4,7 @@ import Lydafspiller from "../components/Lydafspiller";
 import CallToActionKnap from "../components/CallToActionKnap";
 import { useNavigate } from "react-router-dom";
 import { useProgress } from "../context/ProgressContext";
-import oplaesning from "../assets/oplaesning.svg";
+import tegnefigur from "../assets/tegnefigur.svg";
 
 export default function Tegn() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function Tegn() {
       <Overskrift tekst={"TEGN"} />
       <br />
       <Lydafspiller />
-      <img src={oplaesning} alt="Oplæsningsfigur" className="mx-auto w-[300px] md:w-[500px]"/>
+      <img src={tegnefigur} alt="Oplæsningsfigur" className="mx-auto w-[300px] md:w-[500px]"/>
       <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px] md:text-2xl">
         I filosofien har vi hørt om Platons hule – en fortælling om nogle
         mennesker, der kun kan se skygger på en væg og tror, det er hele

@@ -10,6 +10,7 @@ export const AuthContext = createContext(); // Opretter AuthContext ved brug af 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null); // Gemmer den aktuelle bruger (Firebase-user object)
   const [role, setRole] = useState(null); //// Gemmer brugerens rolle (elev / underviser)
+  const [name, setName] = useState(""); // Gemmer brugerens navn (kan bruges til at vise brugerens navn i UI)
   const [loading, setLoading] = useState(true); // // Indikerer om brugerdata stadig indlæses (er ved at blive hentet)
 
   useEffect(() => {
@@ -18,8 +19,10 @@ export function AuthProvider({ children }) {
         setUser(firebaseUser); // Opdaterer state med den aktuelle Firebase-bruger
         const docRef = doc(db, "users", firebaseUser.uid); // Hent rollen fra Firestore
         const docSnap = await getDoc(docRef); // Henter dokumentet for den aktuelle bruger baseret på UID
-        if (docSnap.exists()) { // Hvis dokumentet findes
-          setRole(docSnap.data().role); // Opdaterer rollen i state baseret på data fra Firestore
+        if (docSnap.exists()) {
+          const data = docSnap.data(); // 👈 Tilføj denne linje!
+          setRole(data.role);
+          setName(data.name);
         }
       } else { // Hvis ingen bruger er logget ind
         setUser(null); // Opdaterer state til null, da der ikke er nogen bruger
@@ -37,6 +40,7 @@ export function AuthProvider({ children }) {
     value={{
       user,
       role,
+      name,
       loading,
       setCurrentUser: setUser,
       setUserRole: setRole,
