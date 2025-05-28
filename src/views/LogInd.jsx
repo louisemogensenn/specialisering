@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Overskrift from "../components/Overskrift";
-import gyldendallogo from "../assets/gyldendal.svg";
+import gyldendallogo from "../assets/gyldendallogo.svg";
 import CallToActionKnap from "../components/CallToActionKnap";
 import { useAuth } from "../context/AuthContext"; // Importer AuthContext for at få adgang til brugerens rolle
 

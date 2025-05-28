@@ -6,6 +6,7 @@ import CallToActionKnap from "../components/CallToActionKnap";
 import { useProgress } from "../context/ProgressContext";
 import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
 import erDuSikker from "../assets/flotBrandCharacter.svg"; // Importerer et billede til popup
+import character from "../assets/characterHovedperson.svg";
 
 export default function Hovedpersonen() {
   const [navn, setNavn] = useState(""); // State for at gemme navnet på hovedpersonen - svar 1
@@ -38,6 +39,7 @@ export default function Hovedpersonen() {
       <Overskrift tekst={"HOVEDPERSONEN"} />
       <br />
       <Lydafspiller />
+      <img src={character} alt="Brand Character" className="mx-auto w-[300px] md:w-[500px]"/>
       <h1 className="text-[20px] mb-[2%] mx-[12.5%] mt-[4%]">Opgave 1</h1> {/* teksten er 20px, mrgin-bottom er 2% af skærmen, margin-top er 4% af skærmen */}
       <Underoverskrift tekst={"Hvad hedder hovedpersonen?"} />
       <aside className="mx-[12.5%]">

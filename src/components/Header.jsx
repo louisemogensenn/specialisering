@@ -1,5 +1,5 @@
 import React from "react";
-import gyldendallogo from "../assets/gyldendal.svg";
+import gyldendallogo from "../assets/gyldendallogo.svg";
 import burgermenu from "../assets/burgermenu-ikon.svg";
 import krydsikon from "../assets/luk-ikon.svg"; // ← Tilføj et krydsikon (svg)
 import { Link, useLocation, useNavigate } from "react-router-dom";

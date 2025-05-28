@@ -9,6 +9,8 @@ import { useState } from "react"; // Importerer useState for at håndtere kompon
 import { useProgress } from "../context/ProgressContext";
 import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
 import { useEffect } from "react";
+import character from "../assets/characterHulen.svg";
+
 
 export default function Hulen() {
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
@@ -45,6 +47,7 @@ export default function Hulen() {
       <Overskrift tekst={"HULEN"} />
       <br />
       <Lydafspiller />
+      <img src={character} alt="Brand Character" className="mx-auto w-[300px] md:w-[500px]"/>
       <br />
       <Beskrivelse
         tekst={

@@ -6,6 +6,7 @@ import { useState } from "react"; // Importerer useState for at håndtere kompon
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
 import { useProgress } from "../context/ProgressContext"; // Importerer ProgressContext for at få adgang til opgaver
 import { useNavigate } from "react-router-dom"; // Importer useNavigate for at navigere til en anden side
+import character from "../assets/characterFilosofi.svg";
 
 export default function Filosofi() {
   const [opgaveEt, setOpgaveEt] = useState(""); // State for at gemme brugerens svar på opgave 1
@@ -51,6 +52,7 @@ export default function Filosofi() {
           "I denne opgave skal du reflektere over dig selv. Du skal skrive en kort tekst på ca. 5-10 sætninger, hvor du svarer på spørgsmålene."
         }
       />
+      <img src={character} alt="Brand Character - Filosofi" className="mx-auto w-[300px] md:w-[500px]"/>
       <br />
       <Underoverskrift
         tekst={

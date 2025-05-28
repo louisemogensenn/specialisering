@@ -5,7 +5,6 @@ import Knap from "../components/Knap";
 import { useAuth } from "../context/AuthContext";
 import Underoverskrift from "../components/Underoverskrift";
 import { useState } from "react"; // Importerer useState for at håndtere komponentens tilstand
-import krydsikon from "../assets/luk-ikon.svg"; // Importerer krydsikonet
 import velkomstlumo from "../assets/velkomstlumo.svg"; // Importerer velkomstbilledet
 import { useLocation } from "react-router-dom"; // Importerer useLocation for at få adgang til location-objektet
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
