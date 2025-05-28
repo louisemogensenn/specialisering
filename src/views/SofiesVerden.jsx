@@ -14,6 +14,7 @@ export default function SofiesVerden() {
   const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Hovedpersonen"
   const [aabenHulen, setAabenHulen] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Hulen"
   const [aabenFilosofi, setAabenFilosofi] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Filosofi"
+  const [aabenTidsrejse, setAabenTidsrejse] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Tidsrejse"
 
   const [aabenQuiz, setAabenQuiz] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Quiz"
   const [aabenTegn, setAabenTegn] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Tegn"
@@ -285,7 +286,7 @@ export default function SofiesVerden() {
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
-                <p>Indsæt tidsrejse</p>
+                <p>Intet at vise</p>
               </section>
             </div>
           </section>
@@ -312,7 +313,7 @@ export default function SofiesVerden() {
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
-                <p> Indsæt quiz </p>
+                <p> Intet at vise </p>
               </section>
             </div>
           </section>
