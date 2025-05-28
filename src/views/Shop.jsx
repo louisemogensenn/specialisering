@@ -56,7 +56,7 @@ export default function Shop() {
         <img
           src={shopfigur}
           alt="Brand Character"
-          className="mx-auto mb-[10%] mt-[10%] w-[200px] md:w-[400px]"
+          className="mx-auto mb-[10%] mt-[10%] w-[200px] md:w-[300px]"
         />
         <p className="mx-[12.5%] text-[16px] md:text-[20px]">
           Jeg har ikke en fast definition på rigtig og forkert, fordi jeg tror
@@ -67,8 +67,10 @@ export default function Shop() {
           <span className="font-bold">Hvordan synes du jeg skal se ud?</span>
         </p>
       </section>
-
-      <Overskrift tekst={"SHOP"} />
+      <aside className="mt-[-10%]">
+        <Overskrift tekst={"SHOP"} />
+      </aside>
+      <br />
       <p className="mx-[12.5%]">
         Velkommen til shoppen! Her kan du selv bestemme designet for din app.
         Optjen point ved at løse opgaver og lås op for nye seje features!

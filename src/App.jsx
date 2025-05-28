@@ -19,7 +19,7 @@ import Filosofi from "./views/Filosofi";
 
 const router = createBrowserRouter([
   {
-    path: "/", // 👈 login er åben for alle
+    path: "/", // Login er åben for alle
     element: <LogInd />,
   },
   {

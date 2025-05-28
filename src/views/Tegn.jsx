@@ -5,6 +5,7 @@ import CallToActionKnap from "../components/CallToActionKnap";
 import { useNavigate } from "react-router-dom";
 import { useProgress } from "../context/ProgressContext";
 import tegnefigur from "../assets/tegnefigur.svg";
+import erDuSikker from "../assets/flotBrandCharacter.svg"; // Importerer et billede til popup
 
 export default function Tegn() {
   const navigate = useNavigate(); // Bruges til at navigere brugeren
@@ -93,6 +94,11 @@ export default function Tegn() {
           role="dialog"
         >
           <article className="themable p-8 rounded max-w-sm mx-4 text-center border">
+            <img
+              src={erDuSikker}
+              alt="Din brand character"
+              className="mx-auto"
+            />
             <p className="mb-6">
               Er du sikker på, at du vil aflevere? <br /> Dit valg kan ikke
               fortrydes.
