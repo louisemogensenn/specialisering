@@ -9,6 +9,16 @@ export default function Burgermenu() {
 
   const handleLogout = async () => {
     await auth.signOut();
+
+    // Fjern tema state
+  setTema("");
+
+  // Fjern tema-klasser på body
+  document.body.classList.remove("tema-roed", "tema-gul", "tema-groen");
+
+  // Fjern tema fra sessionStorage
+  sessionStorage.removeItem("tema");
+  
     navigate("/");
   };
 

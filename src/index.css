@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+:root {
+  --bg: #fff; /* Sikrer den hvide baggrund i default */
+}
+
 body {
   font-weight: 300; /* Sikrer, at tykkelsen på fonten i default er let */
   background-color: var(--bg);
@@ -9,25 +13,30 @@ body {
 
 /* Klassen bruges til at ændre baggrundsfarven og streg-farven for flere elementer */
 
-.themable { 
+.themable {
   background-color: var(--bg);
   border-color: var(--border);
 }
 
 button.themable {
-  background-color: var(--button); /* I ovenstående får elementer en specifik baggrundsfarve, men for knapper vil vi gerne ændre denne baggrundsfarve i knappen */
+  background-color: var(
+    --button
+  ); /* I ovenstående får elementer en specifik baggrundsfarve, men for knapper vil vi gerne ændre denne baggrundsfarve i knappen */
 }
 
 nav.themable {
   background-color: var(--input);
 }
 
-input, textarea,
-header, nav {
+input,
+textarea,
+header,
+nav {
   background-color: var(--input);
 }
 
-input, textarea {
+input,
+textarea {
   border-color: var(--border);
 }
 

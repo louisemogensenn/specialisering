@@ -36,7 +36,7 @@ export default function LogInd() {
         setCurrentUser(userCredential.user); // opdater context
         setUserRole(role); // opdater context
 
-        navigate("/mineforloeb"); // naviger uden state, fordi rolle nu er i context
+        navigate("/mineforloeb", { state: { fromLogin: true } });
       } else {
         alert("Brugerens rolle blev ikke fundet.");
       }
