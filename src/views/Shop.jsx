@@ -227,6 +227,8 @@ export default function Shop() {
       <br />
       <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Sko</h1>
       <p className="mx-[12.5%] text-[12px] md:text-[20px]">
+        {" "}
+        {/* Sææter afstand i siderne til 12.5%, teksten til 12px - denne bliver 20px på større skærme */}
         Find din favorit og klik for at købe den
       </p>
 
@@ -294,6 +296,8 @@ export default function Shop() {
             {varenKoebt ? (
               <>
                 <h1 className="text-xl font-bold mb-4">
+                  {" "}
+                  {/* Text er 20 px og fed og har en afstand på 16px til nedstående */}
                   Yay! Du har nu købt varen!
                 </h1>
                 <img
@@ -304,7 +308,8 @@ export default function Shop() {
               </>
             ) : (
               <>
-                <p className="mb-6">Du ser sej ud!</p>
+                <p className="mb-6">Du ser sej ud!</p>{" "}
+                {/* margin-bottom er sat til 24px */}
                 <img
                   className="mx-auto"
                   src={shopfigur}
@@ -313,6 +318,8 @@ export default function Shop() {
                 <p>Vil du købe denne vare?</p>
                 <br />
                 <section className="flex justify-center gap-6">
+                  {" "}
+                  {/* Afstanden mellem elementerne er 24px */}
                   <CallToActionKnap tekst={"TILBAGE"} onClick={handleAfbryd} />
                   <CallToActionKnap tekst={"KØB VARE"} onClick={handleKoeb} />
                 </section>

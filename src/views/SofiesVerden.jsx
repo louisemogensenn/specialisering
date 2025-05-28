@@ -11,33 +11,32 @@ import { useProgress } from "../context/ProgressContext"; // Importerer Progress
 import { useNavigate } from "react-router-dom"; // Importerer useNavigate for at navigere til en anden side
 
 export default function SofiesVerden() {
-  const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false);
-  const [aabenHulen, setAabenHulen] = useState(false);
-  const [aabenFilosofi, setAabenFilosofi] = useState(false);
-  const [aabenTidsrejse, setAabenTidsrejse] = useState(false);
+  const [aabenHovedpersonen, setAabenHovedpersonen] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Hovedpersonen"
+  const [aabenHulen, setAabenHulen] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Hulen"
+  const [aabenFilosofi, setAabenFilosofi] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Filosofi"
 
-  const [aabenQuiz, setAabenQuiz] = useState(false);
-  const [aabenTegn, setAabenTegn] = useState(false);
-  const [klasse, setKlasse] = useState(""); // State for at gemme valgt klasse
-  const [elev, setElev] = useState(""); // State for at gemme valgt elev
+  const [aabenQuiz, setAabenQuiz] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Quiz"
+  const [aabenTegn, setAabenTegn] = useState(false); // Når underviseren skal se eksempler på opgaverne bruges denne til at vise og skjule "Tegn"
+  const [klasse, setKlasse] = useState(""); // State for at gemme valgt klasse - dette kan bruges til at oprette forløbet for den bestemte elev
+  const [elev, setElev] = useState(""); // State for at gemme valgt elev, der kan bruges til at vise forløbet for eleven
 
   const navigate = useNavigate(); // Hook til at navigere til en anden side
 
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
   const [opretPopup, setOpretPopup] = useState(false); // State for at styre visning af opret-popup
 
-  const { role } = useAuth();
-  const { faerdigeOpgaver } = useProgress();
+  const { role } = useAuth(); // Importerer rollen fra Auth og gør det muligt at ændre indholdet baseret på brugeren
+  const { faerdigeOpgaver } = useProgress(); // Hook bruges  til at hente den aktuelle liste af opgaver, som brugeren har løst. Denne liste bruges til at tjekke, hvilke opgaver brugeren allerede har færdiggjort.
 
-  const erHovedpersonenLøst = faerdigeOpgaver.includes("hovedpersonen");
-  const erHulenLøst = faerdigeOpgaver.includes("hulen");
-  const erFilosofiLøst = faerdigeOpgaver.includes("filosofi");
-  const erTidsrejseLøst = faerdigeOpgaver.includes("tidsrejse");
-  const erQuizLøst = faerdigeOpgaver.includes("quiz");
-  const erTegnLøst = faerdigeOpgaver.includes("tegn");
+  const erHovedpersonenLøst = faerdigeOpgaver.includes("hovedpersonen"); // Hvis "hovedpersonen" findes i faerdigeOpgaver, er erHovedpersonenLøst lig med true. Ellers er den false.
+  const erHulenLøst = faerdigeOpgaver.includes("hulen"); // Hvis "hulen" findes i faerdigeOpgaver, er erHulenLøst lig med true. Ellers er den false.
+  const erFilosofiLøst = faerdigeOpgaver.includes("filosofi"); // Samme logik
+  const erTidsrejseLøst = faerdigeOpgaver.includes("tidsrejse"); // Samme logik
+  const erQuizLøst = faerdigeOpgaver.includes("quiz"); // Samme logik
+  const erTegnLøst = faerdigeOpgaver.includes("tegn"); // Samme logik
 
   if (!role) {
-    return <p>Indlæser...</p>; // eller vis en spinner, hvis ønsket
+    return <p>Indlæser...</p>; // Hvis rollen ikke findes
   }
 
   const handleAfbryd = () => {
@@ -51,12 +50,12 @@ export default function SofiesVerden() {
     setTimeout(() => {
       navigate("/mineforloeb");
     }, 3000); // 3000 ms = 3 sekunder
-  }
+  };
 
   return (
     <>
       <Overskrift tekst={"SOFIES VERDEN"} /> {/* Overskrift for siden */}
-      {role === "elev" && (
+      {role === "elev" && ( // Indholdet herunder er synligt, hvis brugeren er elev
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine opgaver."} />{" "}
           {/* Beskrivelse af siden */}
@@ -64,46 +63,46 @@ export default function SofiesVerden() {
           <Underoverskrift tekst={"Opgaver"} />
           {/* Underoverskrift for kapitler */}
           <Knap
-            til={erHovedpersonenLøst ? "#" : "/hovedpersonen"}
+            til={erHovedpersonenLøst ? "#" : "/hovedpersonen"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Hovedpersonen"
             point="100 POINT"
-            disabled={erHovedpersonenLøst}
+            disabled={erHovedpersonenLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
           <Knap
-            til={erHulenLøst ? "#" : "/hulen"}
+            til={erHulenLøst ? "#" : "/hulen"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Hulen"
             point="100 POINT"
-            disabled={erHulenLøst}
+            disabled={erHulenLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
           <Knap
-            til={erFilosofiLøst ? "#" : "/filosofi"}
+            til={erFilosofiLøst ? "#" : "/filosofi"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Filosofi"
             point="100 POINT"
-            disabled={erFilosofiLøst}
+            disabled={erFilosofiLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
           <Knap
-            til={erTidsrejseLøst ? "#" : "#"}
+            til={erTidsrejseLøst ? "#" : "#"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Tidsrejse"
             point="100 POINT"
-            disabled={erTidsrejseLøst}
+            disabled={erTidsrejseLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
           <br />
           <Underoverskrift tekst={"Ekstraopgaver"} />
           <Knap
-            til={erQuizLøst ? "#" : "/quiz"}
+            til={erQuizLøst ? "#" : "/quiz"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Quiz"
             point="100 POINT"
-            disabled={erQuizLøst}
+            disabled={erQuizLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
           <Knap
-            til={erTegnLøst ? "#" : "/tegn"}
+            til={erTegnLøst ? "#" : "/tegn"} // Hvis parameteren er true (og altså findes i færdigeoOpgaver) skal der ikke ske noget - ellers linkes der til siden
             tekst="Tegn"
             point="100 POINT"
-            disabled={erTegnLøst}
+            disabled={erTegnLøst} // Knappen sættes som diabled, hvis opgaven allerede er løst
           />
         </>
       )}
-      {role === "underviser" && (
+      {role === "underviser" && ( // Indholdet herunder er synligt, hvis brugeren er underviser
         <>
           <Beskrivelse
             tekst={
@@ -119,7 +118,7 @@ export default function SofiesVerden() {
               <p>Hovedpersonen</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenHovedpersonen ? "rotate-270" : "rotate-90"
+                  aabenHovedpersonen ? "rotate-270" : "rotate-90" // Pilen skal roteres alt efter om den er åben eller lukket
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -127,7 +126,7 @@ export default function SofiesVerden() {
             </article>
             <div
               className={`transition-max-height duration-300 overflow-hidden ease-in-out ${
-                aabenHovedpersonen ? "max-h-[1000px]" : "max-h-0"
+                aabenHovedpersonen ? "max-h-[1000px]" : "max-h-0" // Styling for "popnedboksen", hvis den er åben
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
@@ -151,12 +150,12 @@ export default function SofiesVerden() {
           <section className="mb-[30px]">
             <article
               className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-              onClick={() => setAabenHulen(!aabenHulen)}
+              onClick={() => setAabenHulen(!aabenHulen)} // Bruges til at vise opgave indholdet ved at sætte værdien til det modsatte ved klik (toggle)
             >
               <p>Hulen</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenHulen ? "rotate-270" : "rotate-90"
+                  aabenHulen ? "rotate-270" : "rotate-90" // Pilen skal roteres alt efter om den er åben eller lukket
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -164,7 +163,7 @@ export default function SofiesVerden() {
             </article>
             <div
               className={`transition-max-height duration-300 overflow-hidden ease-in-out ${
-                aabenHulen ? "max-h-[1000px]" : "max-h-0"
+                aabenHulen ? "max-h-[1000px]" : "max-h-0" // Styling for "popnedboksen", hvis den er åben
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
@@ -197,7 +196,7 @@ export default function SofiesVerden() {
           <section className="mb-[30px]">
             <article
               className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-              onClick={() => setAabenFilosofi(!aabenFilosofi)}
+              onClick={() => setAabenFilosofi(!aabenFilosofi)} // Bruges til at vise opgave indholdet ved at sætte værdien til det modsatte ved klik (toggle)
             >
               <p>Filosofi</p>
               <img
@@ -269,12 +268,12 @@ export default function SofiesVerden() {
           <section className="mb-[30px]">
             <article
               className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-              onClick={() => setAabenTidsrejse(!aabenTidsrejse)}
+              onClick={() => setAabenTidsrejse(!aabenTidsrejse)} // Bruges til at vise opgave indholdet ved at sætte værdien til det modsatte ved klik (toggle)
             >
               <p>Tidsrejse</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenTidsrejse ? "rotate-270" : "rotate-90"
+                  aabenTidsrejse ? "rotate-270" : "rotate-90" // Pilen skal roteres alt efter om den er åben eller lukket
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -282,7 +281,7 @@ export default function SofiesVerden() {
             </article>
             <div
               className={`transition-max-height duration-300 overflow-hidden ease-in-out ${
-                aabenTidsrejse ? "max-h-[1000px]" : "max-h-0"
+                aabenTidsrejse ? "max-h-[1000px]" : "max-h-0" // Styling for "popnedboksen", hvis den er åben
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
@@ -296,12 +295,12 @@ export default function SofiesVerden() {
           <section className="mb-[30px]">
             <article
               className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-              onClick={() => setAabenQuiz(!aabenQuiz)}
+              onClick={() => setAabenQuiz(!aabenQuiz)} // Bruges til at vise opgave indholdet ved at sætte værdien til det modsatte ved klik (toggle)
             >
               <p>Quiz</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenQuiz ? "rotate-270" : "rotate-90"
+                  aabenQuiz ? "rotate-270" : "rotate-90" // Pilen skal roteres alt efter om den er åben eller lukket
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -309,7 +308,7 @@ export default function SofiesVerden() {
             </article>
             <div
               className={`transition-max-height duration-300 overflow-hidden ease-in-out ${
-                aabenQuiz ? "max-h-[1000px]" : "max-h-0"
+                aabenQuiz ? "max-h-[1000px]" : "max-h-0" // Styling for "popnedboksen", hvis den er åben
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
@@ -321,12 +320,12 @@ export default function SofiesVerden() {
           <section className="mb-[30px]">
             <article
               className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-              onClick={() => setAabenTegn(!aabenTegn)}
+              onClick={() => setAabenTegn(!aabenTegn)} // Bruges til at vise opgave indholdet ved at sætte værdien til det modsatte ved klik (toggle)
             >
               <p>Tegn</p>
               <img
                 className={`transition-transform duration-300 ${
-                  aabenTegn ? "rotate-270" : "rotate-90"
+                  aabenTegn ? "rotate-270" : "rotate-90" // Pilen skal roteres alt efter om den er åben eller lukket
                 }`}
                 src={pil}
                 alt="Åbn-pil"
@@ -334,7 +333,7 @@ export default function SofiesVerden() {
             </article>
             <div
               className={`transition-max-height duration-300 overflow-hidden ease-in-out ${
-                aabenTegn ? "max-h-[1000px]" : "max-h-0"
+                aabenTegn ? "max-h-[1000px]" : "max-h-0" // Styling for "popnedboksen", hvis den er åben
               }`}
             >
               <section className="text-[16px] p-3 border flex flex-col gap-6 mx-[12.5%] rounded md:text-2xl">
@@ -387,6 +386,7 @@ export default function SofiesVerden() {
               }}
             />
           </article>
+
           {visPopup && (
             <aside
               className="fixed inset-0 flex items-center justify-center z-50"
@@ -396,18 +396,18 @@ export default function SofiesVerden() {
               <article className="bg-white p-8 rounded max-w-sm mx-4 border">
                 <h1 className="text-3xl text-center">Sofies Verden</h1>
                 <p className="text-center">
-                  Du er ved at oprette forløbet <br /> "Sofies Verden". <br />Hvem
-                  ønsker du at oprette forløbet for?
+                  Du er ved at oprette forløbet <br /> "Sofies Verden". <br />
+                  Hvem ønsker du at oprette forløbet for?
                 </p>
                 <br />
                 <p className="font-bold">Vælg klasse</p>
                 <aside>
                   <select
                     value={klasse}
-                    onChange={(e) => setKlasse(e.target.value)}
+                    onChange={(e) => setKlasse(e.target.value)} // Værdien for den valgte klasse sættes
                     style={{ padding: "8px", fontSize: "16px" }}
                   >
-                    <option value="" disabled>
+                    <option value="" disabled> {/* Default er intet valgt, men dette er ikke en mulighed */}
                       Intet valgt
                     </option>
                     <option value="5.a">5.a</option>
@@ -418,13 +418,13 @@ export default function SofiesVerden() {
                 </aside>
                 <br />
                 <p className="font-bold">Vælg elever</p>
-                <aside >
+                <aside>
                   <select
                     value={elev}
-                    onChange={(e) => setElev(e.target.value)}
+                    onChange={(e) => setElev(e.target.value)} // Giver værdien for eleven, der oprettes et forløb for
                     style={{ padding: "8px", fontSize: "16px" }}
                   >
-                    <option value="" disabled>
+                    <option value="" disabled> {/* Default er intet valgt, men dette er ikke en mulighed */}
                       Intet valgt
                     </option>
                     <option value="alle">Alle</option>
@@ -438,7 +438,7 @@ export default function SofiesVerden() {
                 <br />
                 <section className="flex justify-center gap-6">
                   <CallToActionKnap tekst={"AFBRYD"} onClick={handleAfbryd} />
-                  <CallToActionKnap tekst={"OPRET"} onClick={handleOpret}/>
+                  <CallToActionKnap tekst={"OPRET"} onClick={handleOpret} />
                 </section>
               </article>
             </aside>
@@ -446,16 +446,16 @@ export default function SofiesVerden() {
 
           {opretPopup && (
             <aside
-            className="fixed inset-0 flex items-center justify-center z-50"
-            aria-modal="true"
-            role="dialog"
-          >
-            <article className="p-8 rounded max-w-sm mx-4 text-center border bg-white">
-              <h1 className="text-3xl">Dit forløb er oprettet.</h1>
-              <br />
-              <p> Du sendes nu til "Mine Forløb".</p>
-            </article>
-          </aside>
+              className="fixed inset-0 flex items-center justify-center z-50"
+              aria-modal="true"
+              role="dialog"
+            >
+              <article className="p-8 rounded max-w-sm mx-4 text-center border bg-white">
+                <h1 className="text-3xl">Dit forløb er oprettet.</h1>
+                <br />
+                <p> Du sendes nu til "Mine Forløb".</p>
+              </article>
+            </aside>
           )}
         </>
       )}

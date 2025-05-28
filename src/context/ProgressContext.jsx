@@ -22,11 +22,11 @@ export const ProgressProvider = ({ children }) => {
     setPoints(beregnedePoint); // Opdaterer point til den nye værdi
   }, []);
 
-  const faerdiggoerOpgaver = (taskName) => { // Funktion til at markere en opgave som færdig og beregne point
-    if (!faerdigeOpgaver.includes(taskName)) {
-      const nyeTasks = [...faerdigeOpgaver, taskName]; // Tilføj opgave til listen
-      setFaerdigeOpgaver(nyeTasks); // Opdater state
-      sessionStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gem i sessionStorage
+  const faerdiggoerOpgaver = (taskName) => { // Funktionen tager et parameter taskName, som er navnet på den opgave, der skal markeres som færdig.
+    if (!faerdigeOpgaver.includes(taskName)) { // Den går videre kun hvis opgaven endnu ikke er løst – altså hvis taskName ikke findes i arrayet faerdigeOpgaver.
+      const nyeTasks = [...faerdigeOpgaver, taskName]; // Et nyt array nyeTasks bliver lavet med alle de tidligere færdige opgaver plus den nye.
+      setFaerdigeOpgaver(nyeTasks); // Opdaterer React state med det nye array over færdige opgaver.
+      sessionStorage.setItem("faerdigeOpgaver", JSON.stringify(nyeTasks)); // Gemmer listen af færdige opgaver i sessionStorage, så den ikke går tabt, hvis siden genindlæses i samme session. Den bliver gemt som en streng (via JSON.stringify).
 
       const nyePoint = nyeTasks.length * 100; // Beregn point
       setPoints(nyePoint); // Opdater point

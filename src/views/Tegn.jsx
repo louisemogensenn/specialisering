@@ -7,8 +7,8 @@ import { useProgress } from "../context/ProgressContext";
 import tegnefigur from "../assets/tegnefigur.svg";
 
 export default function Tegn() {
-  const navigate = useNavigate();
-  const { faerdiggoerOpgaver } = useProgress();
+  const navigate = useNavigate(); // Bruges til at navigere brugeren 
+  const { faerdiggoerOpgaver } = useProgress(); // Bruges til at tilgå arrayet med færdige opgaver og tilføje denne til arrayet ved aflevering
   const [visPopup, setVisPopup] = useState(false); // Popup visning
 
   const handleSubmitClick = () => {
@@ -29,8 +29,8 @@ export default function Tegn() {
       <Overskrift tekst={"TEGN"} />
       <br />
       <Lydafspiller />
-      <img src={tegnefigur} alt="Oplæsningsfigur" className="mx-auto w-[300px] md:w-[500px]"/>
-      <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px] md:text-2xl">
+      <img src={tegnefigur} alt="Oplæsningsfigur" className="mx-auto w-[300px] md:w-[500px]"/> {/* Placeres i midten med en bredde på 300px og 500px på større skræme */}
+      <p className="ml-[12.5%] mr-[12.5%] mt-[5%] text-[12px] md:text-2xl"> {/* margin til siderne er 12.5%, 5% til top, tekst er 12px men 24px på større skærme */}
         I filosofien har vi hørt om Platons hule – en fortælling om nogle
         mennesker, der kun kan se skygger på en væg og tror, det er hele
         virkeligheden. <br /> <br /> Tegn, hvordan du forestiller dig hulen og
@@ -38,7 +38,7 @@ export default function Tegn() {
         <br /> Når du er færdig, skal du tage et billede af din tegning og
         uploade det.
       </p>
-      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl rounded">
+      <aside className="flex items-center text-2xl p-3 border mx-[12.5%] mb-[30px] mt-[10%] md:text-3xl rounded"> {/* Flex, placeres i midten, 24px skriftstørrelse, 12px i padding, kant 30px til nedtående */}
         <svg
           width="30"
           height="18"

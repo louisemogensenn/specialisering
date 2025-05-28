@@ -31,7 +31,7 @@ export default function Quiz() {
   };
 
   const handleCancel = () => {
-    setVisPopup(false); // Lukker popup uden at ændre noget
+    setVisPopup(false); // Lukker popup
   };
 
   return (
@@ -40,8 +40,14 @@ export default function Quiz() {
       <Lydafspiller />
       <br />
       <form className="mx-[12.5%]">
+        {" "}
+        {/* Sætter en margin til venstre og højre kant på 12.5% af skærmen */}
         <fieldset className="text-[12px] md:text-[15px]">
+          {" "}
+          {/* Skriftstørrelse på 12px og 15px på større skærme */}
           <h1 className="font-bold text-[14px] md:text-[18px]">
+            {" "}
+            {/* Fed skrift, 14px font-størrelse og 18px på bredere skræme */}
             Hvad mente Platon var den rigtige verden?
           </h1>
           <label>
@@ -49,7 +55,7 @@ export default function Quiz() {
               type="radio"
               name="q1"
               value="a"
-              onChange={(e) => setSvarEt(e.target.value)}
+              onChange={(e) => setSvarEt(e.target.value)} // Sætter værdien for svarEt til denne værdi, hvis den er valgt
             />{" "}
             Den verden, vi kan se og røre ved
           </label>
@@ -59,7 +65,7 @@ export default function Quiz() {
               type="radio"
               name="q1"
               value="b"
-              onChange={(e) => setSvarEt(e.target.value)}
+              onChange={(e) => setSvarEt(e.target.value)} // Sætter værdien for svarEt til denne værdi, hvis den er valgt
             />{" "}
             En fantasiverden
           </label>
@@ -69,7 +75,7 @@ export default function Quiz() {
               type="radio"
               name="q1"
               value="c"
-              onChange={(e) => setSvarEt(e.target.value)}
+              onChange={(e) => setSvarEt(e.target.value)} // Sætter værdien for svarEt til denne værdi, hvis den er valgt
             />{" "}
             En verden med perfekte ideer, som vi ikke kan se
           </label>
@@ -79,14 +85,18 @@ export default function Quiz() {
               type="radio"
               name="q1"
               value="d"
-              onChange={(e) => setSvarEt(e.target.value)}
+              onChange={(e) => setSvarEt(e.target.value)} // Sætter værdien for svarEt til denne værdi, hvis den er valgt
             />{" "}
             En verden under jorden
           </label>
         </fieldset>
         <br />
         <fieldset className="text-[12px] md:text-[15px]">
+          {" "}
+          {/* Skriftstørrelse på 12px og 15px på større skærme */}
           <h1 className="font-bold text-[14px] md:text-[18px]">
+            {" "}
+            {/* Fed skrift, 14px font-størrelse og 18px på bredere skræme */}
             Hvad handler Platons hule-historie om?
           </h1>
           <label>
@@ -94,7 +104,7 @@ export default function Quiz() {
               type="radio"
               name="q2"
               value="a"
-              onChange={(e) => setSvarTo(e.target.value)}
+              onChange={(e) => setSvarTo(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Mennesker, der leger gemmeleg
           </label>
@@ -104,7 +114,7 @@ export default function Quiz() {
               type="radio"
               name="q2"
               value="b"
-              onChange={(e) => setSvarTo(e.target.value)}
+              onChange={(e) => setSvarTo(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Mennesker, der sidder fast og kun ser skygger
           </label>
@@ -114,7 +124,7 @@ export default function Quiz() {
               type="radio"
               name="q2"
               value="c"
-              onChange={(e) => setSvarTo(e.target.value)}
+              onChange={(e) => setSvarTo(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Dyr, der bor i en hule
           </label>
@@ -124,14 +134,18 @@ export default function Quiz() {
               type="radio"
               name="q2"
               value="d"
-              onChange={(e) => setSvarTo(e.target.value)}
+              onChange={(e) => setSvarTo(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             En hule fuld af guld
           </label>
         </fieldset>
         <br />
         <fieldset className="text-[12px] md:text-[15px]">
+          {" "}
+          {/* Skriftstørrelse på 12px og 15px på større skærme */}
           <h1 className="font-bold text-[14px] md:text-[18px]">
+            {" "}
+            {/* Fed skrift, 14px font-størrelse og 18px på bredere skræme */}
             Hvad mente Platon om sjælen og kroppen?
           </h1>
           <label>
@@ -139,7 +153,7 @@ export default function Quiz() {
               type="radio"
               name="q3"
               value="a"
-              onChange={(e) => setSvarTre(e.target.value)}
+              onChange={(e) => setSvarTre(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Sjælen og kroppen er det samme
           </label>
@@ -149,7 +163,7 @@ export default function Quiz() {
               type="radio"
               name="q3"
               value="b"
-              onChange={(e) => setSvarTre(e.target.value)}
+              onChange={(e) => setSvarTre(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Kroppen bestemmer over sjælen
           </label>
@@ -159,7 +173,7 @@ export default function Quiz() {
               type="radio"
               name="q3"
               value="c"
-              onChange={(e) => setSvarTre(e.target.value)}
+              onChange={(e) => setSvarTre(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Sjælen bor i kroppen, men hører til et bedre sted
           </label>
@@ -169,14 +183,18 @@ export default function Quiz() {
               type="radio"
               name="q3"
               value="d"
-              onChange={(e) => setSvarTre(e.target.value)}
+              onChange={(e) => setSvarTre(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Kroppen er vigtigere end sjælen
           </label>
         </fieldset>
         <br />
         <fieldset className="text-[12px] md:text-[15px]">
+          {" "}
+          {/* Skriftstørrelse på 12px og 15px på større skærme */}
           <h1 className="font-bold text-[14px] md:text-[18px]">
+            {" "}
+            {/* Fed skrift, 14px font-størrelse og 18px på bredere skræme */}
             Hvor kommer vores viden ifølge Platon fra?
           </h1>
           <label>
@@ -184,7 +202,7 @@ export default function Quiz() {
               type="radio"
               name="q4"
               value="a"
-              onChange={(e) => setSvarFire(e.target.value)}
+              onChange={(e) => setSvarFire(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Fra skolen
           </label>
@@ -194,7 +212,7 @@ export default function Quiz() {
               type="radio"
               name="q4"
               value="b"
-              onChange={(e) => setSvarFire(e.target.value)}
+              onChange={(e) => setSvarFire(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Fra bøger
           </label>
@@ -204,7 +222,7 @@ export default function Quiz() {
               type="radio"
               name="q4"
               value="c"
-              onChange={(e) => setSvarFire(e.target.value)}
+              onChange={(e) => setSvarFire(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Fra vores sanser
           </label>
@@ -214,7 +232,7 @@ export default function Quiz() {
               type="radio"
               name="q4"
               value="d"
-              onChange={(e) => setSvarFire(e.target.value)}
+              onChange={(e) => setSvarFire(e.target.value)} // Sætter værdien for svarTo til denne værdi, hvis den er valgt
             />{" "}
             Fra at huske noget, vores sjæl allerede ved
           </label>
