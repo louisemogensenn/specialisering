@@ -77,9 +77,7 @@ export default function Shop() {
 
       {/* SEKTION MED TEMAER */}
       <h1 className="font-bold mx-[12.5%] text-[15px] md:text-2xl">Temaer</h1>
-      <p className="mx-[12.5%] text-[12px] md:text-[20px]">
-        Find din favorit og klik for at købe den
-      </p>
+      <br />
       <section className="flex justify-between mx-[12.5%]">
         <img src={pil} alt="Pil til venstre" className="rotate-180" />
         <aside>
