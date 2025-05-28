@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
   const [name, setName] = useState(""); // Gemmer brugerens navn (kan bruges til at vise brugerens navn i UI)
   const [loading, setLoading] = useState(true); // // Indikerer om brugerdata stadig indlæses (er ved at blive hentet)
 
-  useEffect(() => {
+  useEffect(() => { // Et react-hook, der kører når komponenten er sat op
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => { // En funktion der lytter efter ændringer i autentificeringstilstanden
       if (firebaseUser) { // Hvis en bruger er logget ind
         setUser(firebaseUser); // Opdaterer state med den aktuelle Firebase-bruger
