@@ -16,7 +16,7 @@ import shopfigur from "../assets/popshopfigur.svg"; // Importerer shop-figuren
 import koebtvare from "../assets/koebtvare.svg"; // Importerer billede for købt vare
 
 export default function Shop() {
-  const [tema, setTema] = useState(() => sessionStorage.getItem("tema") || "");
+  const [tema, setTema] = useState(() => sessionStorage.getItem("tema") || ""); // Dette hook gør det muligt at hente det aktuelle tema fra sessionStorage, så det huskes ved genindlæsning af siden. Hvis der ikke er noget tema gemt, starter den med en tom streng.
   const [popup, setPopup] = useState(false); // Tilstand for at vise popup
   const [varenKoebt, setVarenKoebt] = useState(false); // <- ny state
 
