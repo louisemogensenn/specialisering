@@ -9,34 +9,34 @@ import CallToActionKnap from "../components/CallToActionKnap";
 import { useAuth } from "../context/AuthContext"; // Importer AuthContext for at få adgang til brugerens rolle
 
 export default function LogInd() {
-  const { setCurrentUser, setUserRole } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const { setCurrentUser, setUserRole } = useAuth(); // Brug AuthContext til at opdatere brugerens rolle
+  const [email, setEmail] = useState(""); // Initialiser email state
+  const [password, setPassword] = useState(""); // Initialiser password state
+  const navigate = useNavigate(); // Brug useNavigate til at navigere efter login
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Undgår, at default-værdien træder i kraft, når man trykket på knappen
 
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
+    try { // Prøv at logge ind med email og adgangskode
+      const userCredential = await signInWithEmailAndPassword( // opretter en konstant, der venter på signInWithEmailAndPassword
+        auth, // Tager auth fra firebase
+        email, // Tager email fra state
+        password // Tager password fra state
       );
-      const uid = userCredential.user.uid;
+      const uid = userCredential.user.uid; // Opretter en konstant uid, der tager brugeren uid
 
       // Hent rolle fra Firestore
-      const docRef = doc(db, "users", uid);
-      const docSnap = await getDoc(docRef);
+      const docRef = doc(db, "users", uid); // Opretter en reference til dokumentet i Firestore
+      const docSnap = await getDoc(docRef); // Henter dokumentet fra Firestore
 
-      if (docSnap.exists()) {
-        const role = docSnap.data().role;
-        console.log("Brugerens rolle:", role);
+      if (docSnap.exists()) { // Hvis dokumentet findes (med dokumentet menes brugerens uid)
+        const role = docSnap.data().role; // Så oprettes en konstant rolle, der tager data fra dokumentet. Denne data omhandler brugerens rolle
+        // console.log("Brugerens rolle:", role); // 
 
-        setCurrentUser(userCredential.user); // opdater context
-        setUserRole(role); // opdater context
+        setCurrentUser(userCredential.user); // opdater context til brugeren
+        setUserRole(role); // opdater context til brugerens rolle
 
-        navigate("/mineforloeb", { state: { fromLogin: true } });
+        navigate("/mineforloeb", { state: { fromLogin: true } }); // Navigerer til "mineforloeb" siden, når login er succesfuldt - altså når state er opdateret og når brugeren komer fra logind-siden
       } else {
         alert("Brugerens rolle blev ikke fundet.");
       }

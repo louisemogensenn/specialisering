@@ -11,13 +11,12 @@ import { useLocation } from "react-router-dom"; // Importerer useLocation for at
 import CallToActionKnap from "../components/CallToActionKnap"; // Importerer CallToActionKnap komponenten
 
 export default function MineForloeb() {
-  const { role, name, loading } = useAuth();
-  const location = useLocation();
-  const [visVelkomst, setVisVelkomst] = useState(
-    () => location.state?.fromLogin === true
-  );
+  const { role, name, loading } = useAuth(); // Bruges til at undersøge, hvilke brugerrolle typen har
+  const location = useLocation(); // Bruges til at få adgang til lokationen, så der kan tjekkes, om brugeren kommer fra logind-siden
 
-  if (loading) {
+  const [visVelkomst, setVisVelkomst] = useState(() => location.state?.fromLogin === true); // Initialiserer visVelkomst til true, hvis brugeren kommer fra logind-siden
+
+  if (loading) { // Hvis siden loades
     return <p>Indlæser...</p>; // 👈 Vent på brugerdata
   }
 
@@ -32,7 +31,7 @@ export default function MineForloeb() {
           <Underoverskrift tekst={"Forløb"} />
           <Knap til="/sofiesverden" tekst="Sofies Verden" />
 
-          {visVelkomst && (
+          {visVelkomst && ( // Hvis brugeren er en elev og hvis brugeren kommer fra logind-siden vises denne velkomstbesked
             <aside
               className="fixed inset-0 flex items-center justify-center z-50"
               aria-modal="true"
@@ -40,7 +39,7 @@ export default function MineForloeb() {
             >
               <article className="themable p-8 rounded border max-w-[350px]">
                 <h1 className="text-2xl text-center ">
-                  HEJ {name.toUpperCase()}!
+                  HEJ {name.toUpperCase()}! {/* Navnet hentes fra auth og sættes til at være store bogstaver */}
                 </h1>
                 <br />
                 <section>
@@ -65,7 +64,7 @@ export default function MineForloeb() {
                 />
 
                 <aside className="flex justify-center">
-                  <CallToActionKnap tekst={"START"} onClick={() => setVisVelkomst(false)}/>
+                  <CallToActionKnap tekst={"START"} onClick={() => setVisVelkomst(false)}/> {/* Skjules ved klik på start */}
                 </aside>
               </article>
             </aside>
@@ -73,7 +72,7 @@ export default function MineForloeb() {
         </>
       )}
 
-      {role === "underviser" && (
+      {role === "underviser" && ( // Hvis brugeren er en underviser
         <>
           <Beskrivelse tekst={"Her er en oversigt over dine forløb"} />
           <br />

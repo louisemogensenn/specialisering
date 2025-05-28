@@ -19,11 +19,11 @@ export default function Filosofi() {
 
   const handleFinalSubmit = () => {
     gemSvarData("filosofi", { opgaveEt, opgaveTo, opgaveTre, opgaveFire, opgaveFem }); // Gemmer begge svar
-    faerdiggoerOpgaver("filosofi");
-    navigate("/point");
+    faerdiggoerOpgaver("filosofi"); // Marker opgaven som færdig i ProgressContext, hvor filosifi tilføjet til færdige opgaver
+    navigate("/point"); // Navigerer brugeren til point-siden efter aflevering
   };
 
-  const handleSubmitClick = () => {
+  const handleSubmitClick = () => { // Tjeker, om nogen af felterne er tomme
     if (
       opgaveEt === "" ||
       opgaveTo === "" ||
@@ -63,7 +63,7 @@ export default function Filosofi() {
           className="w-full h-40 border p-4 resize-none rounded mb-[6%]" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={opgaveEt} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setOpgaveEt(e.target.value)}
+          onChange={(e) => setOpgaveEt(e.target.value)} // Opdaterer state når brugeren skriver i textarea, hvor e er event objektet og e.target.value er den nuværende værdi af textarea'en
         ></textarea>
       </aside>
       <br />
@@ -78,7 +78,7 @@ export default function Filosofi() {
           className="w-full h-40 border p-4 resize-none rounded mb-[6%]" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={opgaveTo} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setOpgaveTo(e.target.value)}
+          onChange={(e) => setOpgaveTo(e.target.value)} // Opdaterer state når brugeren skriver i textarea, hvor e er event objektet og e.target.value er den nuværende værdi af textarea'en
         ></textarea>
       </aside>
       <br />
@@ -89,7 +89,7 @@ export default function Filosofi() {
           className="w-full h-40 border p-4 resize-none rounded mb-[6%]" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={opgaveTre} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setOpgaveTre(e.target.value)}
+          onChange={(e) => setOpgaveTre(e.target.value)} // Opdaterer state når brugeren skriver i textarea, hvor e er event objektet og e.target.value er den nuværende værdi af textarea'en
         ></textarea>
       </aside>
       <br />
@@ -104,7 +104,7 @@ export default function Filosofi() {
           className="w-full h-40 border p-4 resize-none rounded mb-[6%]" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={opgaveFire} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setOpgaveFire(e.target.value)}
+          onChange={(e) => setOpgaveFire(e.target.value)} // Opdaterer state når brugeren skriver i textarea, hvor e er event objektet og e.target.value er den nuværende værdi af textarea'en
         ></textarea>
       </aside>
       <br />
@@ -115,7 +115,7 @@ export default function Filosofi() {
           className="w-full h-40 border p-4 resize-none rounded mb-[6%]" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={opgaveFem} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setOpgaveFem(e.target.value)}
+          onChange={(e) => setOpgaveFem(e.target.value)} // Opdaterer state når brugeren skriver i textarea, hvor e er event objektet og e.target.value er den nuværende værdi af textarea'en
         ></textarea>
       </aside>
 

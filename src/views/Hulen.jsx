@@ -12,20 +12,20 @@ import { useEffect } from "react";
 
 export default function Hulen() {
   const [visPopup, setVisPopup] = useState(false); // State for at styre visning af popup
-  const { faerdiggoerOpgaver, gemSvarData, svarData } = useProgress();
-  const navigate = useNavigate();
-  const [svar, setSvar] = useState("");
+  const { faerdiggoerOpgaver, gemSvarData, svarData } = useProgress(); // Importerer kontekst for at kunne gemme og hente data
+  const navigate = useNavigate(); // Så der kan navigeres til en anden side
+  const [svar, setSvar] = useState(""); // State for at gemme brugerens svar. Dette skal bruges til at vise til underviseren senere
 
-  useEffect(() => {
-    const tidligereSvar = svarData?.hulen?.svar;
-    if (tidligereSvar) {
-      setSvar(tidligereSvar);
+  useEffect(() => { // Hver gang svarData opdateres
+    const tidligereSvar = svarData?.hulen?.svar; // Oprettes en konstant, der kigger på, om der er svar data for hulens svar. Hvis der er, gemmes det i tidligereSvar
+    if (tidligereSvar) { // Hvis der er et svr fra tidligere
+      setSvar(tidligereSvar); // Gem det i svar state, så det vises i textarea
     }
-  }, [svarData]);
+  }, [svarData]); // useEffect kører, når svarData ændres
 
-  const handleFinalSubmit = () => {
-    faerdiggoerOpgaver("hulen", 250); // navn og point
-    navigate("/point"); // evt. brug useNavigate()
+  const handleFinalSubmit = () => { // Når brugeren bekræfter aflevering ved klik på knappen
+    faerdiggoerOpgaver("hulen", 100); // Gemmes opgaven i arrayet og sætter point til 100
+    navigate("/point"); // Bruges til at navigere til point ved klik
   };
 
   const handleSubmitClick = () => {
@@ -59,8 +59,8 @@ export default function Hulen() {
           className="w-full h-40 border p-4 resize-none rounded" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           onChange={(e) => {
-            setSvar(e.target.value);
-            gemSvarData("hulen", { svar: e.target.value });
+            setSvar(e.target.value); // opdaterer svar state når denne laves
+            gemSvarData("hulen", { svar: e.target.value }); // gemmer svar i kontekst
           }} // opdater state ved ændring
         ></textarea>
       </aside>

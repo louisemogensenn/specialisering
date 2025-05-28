@@ -9,12 +9,12 @@ import { useNavigate } from "react-router-dom"; // Importer useNavigate for at n
 
 export default function Quiz() {
   const [visPopup, setVisPopup] = useState(false); // Popup visning
-  const [svarEt, setSvarEt] = useState("");
-  const [svarTo, setSvarTo] = useState("");
-  const [svarTre, setSvarTre] = useState("");
-  const [svarFire, setSvarFire] = useState("");
-  const navigate = useNavigate();
-  const { faerdiggoerOpgaver } = useProgress();
+  const [svarEt, setSvarEt] = useState(""); // State til at gemme svar på spørgsmål
+  const [svarTo, setSvarTo] = useState(""); // State til at gemme svar på spørgsmål
+  const [svarTre, setSvarTre] = useState(""); // State til at gemme svar på spørgsmål
+  const [svarFire, setSvarFire] = useState(""); // State til at gemme svar på spørgsmål
+  const navigate = useNavigate(); // Bruger useNavigate til at navigere til en anden side
+  const { faerdiggoerOpgaver } = useProgress(); // Bruger useProgress for at få adgang til faerdiggoerOpgaver funktionen
 
   const handleFinalSubmit = () => {
     faerdiggoerOpgaver("quiz", 100); // navn og point
@@ -23,10 +23,11 @@ export default function Quiz() {
 
   const handleSubmitClick = () => {
     if (!svarEt || !svarTo || !svarTre || !svarFire) {
+      // Hvis alle svar ikke er besvaret
       alert("Du skal besvare alle spørgsmål før du kan aflevere.");
       return;
     }
-    setVisPopup(true);
+    setVisPopup(true); // Viser popup for at bekræfte aflevering
   };
 
   const handleCancel = () => {

@@ -26,13 +26,13 @@ export default function Elev() {
 
       <section className="mb-[30px]">
         <article
-          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-          onClick={() => setAabenHovedpersonen(!aabenHovedpersonen)}
+          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl" /* 2px i skriftstørrelse, paddingomkring, afrundede kanter og større skrift i større skærm */
+          onClick={() => setAabenHovedpersonen(!aabenHovedpersonen)} // Åbner og lukker sektionen ved at ændre tilstanden
         >
           <p>Hovedpersonen</p>
           <img
             className={`transition-transform duration-300 ${
-              aabenHovedpersonen ? "rotate-270" : "rotate-90"
+              aabenHovedpersonen ? "rotate-270" : "rotate-90" // Hvis en knap er åben skal pilen roteres yderligere
             }`}
             src={pil}
             alt="Åbn-pil"
@@ -62,8 +62,8 @@ export default function Elev() {
 
       <section className="mb-[30px]">
         <article
-          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-          onClick={() => setAabenHulen(!aabenHulen)}
+          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl" /* 2px i skriftstørrelse, paddingomkring, afrundede kanter og større skrift i større skærm */
+          onClick={() => setAabenHulen(!aabenHulen)} // Åbner og lukker sektionen ved at ændre tilstanden
         >
           <p>Hulen</p>
           <img
@@ -108,8 +108,8 @@ export default function Elev() {
 
       <section className="mb-[30px]">
         <article
-          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-          onClick={() => setAabenFilosofi(!aabenFilosofi)}
+          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl" /* 2px i skriftstørrelse, paddingomkring, afrundede kanter og større skrift i større skærm */
+          onClick={() => setAabenFilosofi(!aabenFilosofi)} // Åbner og lukker sektionen ved at ændre tilstanden
         >
           <p>Filosofi</p>
           <img
@@ -184,8 +184,8 @@ export default function Elev() {
 
       <section className="mb-[30px]">
         <article
-          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl"
-          onClick={() => setAabenQuiz(!aabenQuiz)}
+          className=" text-[20px] p-3 border flex justify-between mx-[12.5%] rounded md:text-3xl" /* 2px i skriftstørrelse, paddingomkring, afrundede kanter og større skrift i større skærm */
+          onClick={() => setAabenQuiz(!aabenQuiz)} // Åbner og lukker sektionen ved at ændre tilstanden
         >
           <p>Quiz</p>
           <img

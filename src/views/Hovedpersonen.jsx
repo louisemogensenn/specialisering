@@ -15,12 +15,12 @@ export default function Hovedpersonen() {
   const navigate = useNavigate();
   
   const handleFinalSubmit = () => {
-    gemSvarData("hovedpersonen", { navn, beskrivelse }); // Gemmer begge svar
-    faerdiggoerOpgaver("hovedpersonen");
-    navigate("/point");
+    gemSvarData("hovedpersonen", { navn, beskrivelse }); // Gemmer begge svar i progress context
+    faerdiggoerOpgaver("hovedpersonen"); // Markerer opgaven som færdig i progress context, hvor hovedpersonen tilfføjes til færdige opgaver
+    navigate("/point"); // Navigerer brugeren til point siden efter aflevering
   };
 
-  const handleSubmitClick = () => {
+  const handleSubmitClick = () => { // Når brugeren trykker på "AFLEVER" knappen
     if (navn.trim() === "" || beskrivelse.trim() === "") {
       // Tjek om felterne er udfyldt og fjerner eventuelle mellemrum
       alert("Begge felter skal udfyldes."); // Hvis de ikke begge er udfyldt vises en alert
@@ -29,7 +29,7 @@ export default function Hovedpersonen() {
     setVisPopup(true); // Vis popup for bekræftelse af aflevering, når begge felter er udfyldt
   };
 
-  const handleCancel = () => {
+  const handleCancel = () => { // Hvis brugeren trykker på afbryd
     setVisPopup(false); // Lukker popup uden at ændre noget
   };
 
@@ -38,7 +38,7 @@ export default function Hovedpersonen() {
       <Overskrift tekst={"HOVEDPERSONEN"} />
       <br />
       <Lydafspiller />
-      <h1 className="text-[20px] mb-[2%] mx-[12.5%] mt-[4%]">Opgave 1</h1>
+      <h1 className="text-[20px] mb-[2%] mx-[12.5%] mt-[4%]">Opgave 1</h1> {/* teksten er 20px, mrgin-bottom er 2% af skærmen, margin-top er 4% af skærmen */}
       <Underoverskrift tekst={"Hvad hedder hovedpersonen?"} />
       <aside className="mx-[12.5%]">
         <input
@@ -57,7 +57,7 @@ export default function Hovedpersonen() {
           className="w-full h-40 border p-4 resize-none rounded" // Styles med kant, giver den lov til at fylde hele sin container, har en højde på 160px, padding på 16px og kan ikke ændres i størrelse
           placeholder="Skriv din besvarelse her..."
           value={beskrivelse} // Sætter textarea'ens værdi til beskrivelse state
-          onChange={(e) => setBeskrivelse(e.target.value)}
+          onChange={(e) => setBeskrivelse(e.target.value)} // Opdaterer state når input ændres. Dette sker ved, at e, der er et event-objekt, bruges til at hente den nuværende værdi af input-feltet med e.target.value
         ></textarea>
       </aside>
       <aside className="flex justify-center mt-[5%]">
@@ -67,7 +67,7 @@ export default function Hovedpersonen() {
         {/* Knap der kalder handleSubmitClick funktionen når den klikkes */}
       </aside>
 
-      {visPopup && (
+      {visPopup && ( // Hvis der er en popup skal nedstående vises
         <aside
           className="fixed inset-0 flex items-center justify-center z-50"
           aria-modal="true"
