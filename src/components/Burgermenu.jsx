@@ -20,14 +20,14 @@ export default function Burgermenu() {
   return (
     <>
       {role === "elev" ? ( // Hvis brugerens rolle er "elev", vises følgende navigationsmenu
-        <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
+        <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen"> {/* Får temaet, 24px i skrift, flec i kolonne o midten (både x og y). Der er 48px mellem hvert link og det fylder hele skærmen */}
           <Link to="/mineforloeb">Se mine forløb</Link>
           <Link to="/shop">Gå til shop</Link>
           <Link to="#">Indstillinger</Link>
           <button onClick={handleLogout}>Log ud</button> {/* Ved klik på knappen kaldes handleLogout-funktionen, som logger brugeren ud */}
         </nav>
       ) : (
-        <nav className="themable text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
+        <nav className="text-2xl flex flex-col justify-center align-center text-center gap-12 mt-[-10%] md:mt-[-5%] h-screen">
           <Link to="/udforskalleforloeb">Udforsk alle forløb</Link>
           <Link to="/mineforloeb">Se mine forløb</Link>
           <Link to="#">Indstillinger</Link>

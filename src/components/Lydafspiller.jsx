@@ -10,33 +10,28 @@ export default function Lydafspiller() {
   const togglePlay = () => {
     // En funktion til at skifte mellem play og pause (også mellem de to ikoner, der vises)
     const lyd = lydRef.current; // Der oprettes en konstant
-    if (lyd) {
+    if (lyd) { // Hvis der er en lyd
       // Hvis lyd-elementet findes, så skifter vi til play eller pause
-      if (afspiller) {
-        // Hvis afspiller er true, så skal vi pause
+      if (afspiller) { // Hvis afspiller er true, så skal vi pause
         lyd.pause(); // Vi pauser lydafspilleren ved brug af .pause, der er en metode på lyd-elementet (useRef)
-      } else {
-        // Hvis afspiller er false, så skal vi spille
+      } else { // Hvis afspiller er false, så skal vi spille
         lyd.play(); // Vi spiller lydafspilleren ved brug af .play, der er en metode på lyd-elementet (useRef)
       }
       setAfspiller(!afspiller); // Vi skifter afspiller state til det modsatte af, hvad den er nu
     }
   };
 
-  useEffect(() => {
-    // useEffect bruges til at håndtere sideeffekter i komponenten, herunder opdatering af afspilningsprocent og varighed, hver gang komponenten opdateres
+  useEffect(() => { // useEffect bruges til at håndtere sideeffekter i komponenten, herunder opdatering af afspilningsprocent og varighed, hver gang komponenten opdateres
     const lyd = lydRef.current; // Vi henter lyd-elementet fra referencen
 
     const updateProgress = () => {
       // En funktion til at opdatere afspilningsprocenten
-      if (lyd && duration) {
-        // Hvis lyd-elementet findes og varigheden er sat, så opdaterer vi progress
+      if (lyd && duration) { // Hvis lyd-elementet findes og varigheden er sat, så opdateres progress
         setProgress((lyd.currentTime / duration) * 100); // Vi sætter progress til den nuværende tid divideret med varigheden ganget med 100 for at få procentdelen
       }
     };
 
-    const handleLoadedMetadata = () => {
-      // En funktion, der håndterer, når metadata for lydfilen er indlæst
+    const handleLoadedMetadata = () => { // En funktion, der håndterer, når metadata for lydfilen er indlæst
       setDuration(lyd.duration); // Varigheden sættes til lydfilens samlede varighed, når metadata er indlæst
     };
 
@@ -52,20 +47,20 @@ export default function Lydafspiller() {
   return (
     <>
       <section className="themable flex items-center justify-between border rounded p-3 mx-[12.5%] relative">
-        <p>0:00</p>
+        <p>0:00</p> {/* Angiver tiden */}
 
         {/* Custom Progressbar */}
         <article className="relative w-full h-2 mx-4 bg-gray-300 rounded overflow-hidden">
           <section
             className="h-full bg-black transition-all"
-            style={{ width: `${progress}%` }}
+            style={{ width: `${progress}%` }} // En template literal som indsætter værdien af variablen progress, efterfulgt af procent-tegnet %.
           ></section>
         </article>
 
         <p>3:02</p>
 
         {/* Play / Pause toggle */}
-        <button onClick={togglePlay} className="ml-4">
+        <button onClick={togglePlay} className="ml-4"> {/* Ved klik skifter den mellem af afspille eller stop */}
           {afspiller ? (
             // Pause ikon
             <svg
@@ -97,7 +92,7 @@ export default function Lydafspiller() {
       </section>
 
       {/* Skjult lyd-element */}
-      <audio ref={lydRef} src={lydfil} />
+      <audio ref={lydRef} src={lydfil} /> {/* Referencen til lyden */}
 
       <p className="underline text-right mr-[12.5%] text-[12px] mt-[10px]">
         Læs teksten
