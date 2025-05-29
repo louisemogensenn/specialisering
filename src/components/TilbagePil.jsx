@@ -14,11 +14,14 @@ export default function TilbagePil({ destination = -1 }) {
   };
 
   return (
+    <>
+    <br />
     <img
       onClick={gaaTilbage}
       className='rotate-180 ml-[12.5%] cursor-pointer'
       src={pil}
       alt="Tilbagepil"
     />
+    </>
   );
 }

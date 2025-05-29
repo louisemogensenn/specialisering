@@ -13,6 +13,10 @@ body {
 
 /* Klassen bruges til at ændre baggrundsfarven og streg-farven for flere elementer */
 
+.header-bg {
+  background-color: #D9D9D9;
+}
+
 .themable {
   background-color: var(--bg);
   border-color: var(--border);
