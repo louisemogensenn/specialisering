@@ -27,7 +27,7 @@ export default function Header() {
     // Wrapper for hele headeren med baggrundsfarve, padding og layout
     <header className="w-full bg-[#d9d9d9] flex items-center justify-between px-[12.5%] py-6">
       {/* Mobilvisning (skjules ved md og op) */}
-      <div className="flex items-center justify-between w-full md:hidden relative">
+      <div className="flex items-center justify-between w-full xl:hidden relative">
         {/* Venstre side: Burgermenu eller krydsikon */}
         <div>
           {erBurgermenu ? (
@@ -66,7 +66,7 @@ export default function Header() {
       </div>
 
       {/* Desktopvisning (vises kun fra md og op) */}
-      <div className="hidden md:flex items-center justify-between w-full">
+      <div className="hidden xl:flex items-center justify-between w-full">
         {/* Venstre side: Logo */}
         <Link to="/mineforloeb">
           <img
