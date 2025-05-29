@@ -47,6 +47,7 @@ export default function Shop() {
   return (
     <>
       <section className="mb-[20%]">
+        <br />
         <Overskrift tekst={"HEJ!"} />
         <Beskrivelse
           tekst={

@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     // Wrapper for hele headeren med baggrundsfarve, padding og layout
-    <header className="header-bg w-full flex items-center justify-between px-[12.5%] py-6">
+    <header className="w-full flex items-center justify-between px-[12.5%] py-6">
       {/* Mobilvisning (skjules ved md og op) */}
       <div className="flex items-center justify-between w-full xl:hidden relative">
         {/* Venstre side: Burgermenu eller krydsikon */}
