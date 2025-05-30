@@ -76,7 +76,7 @@ export default function Header() {
         )}
       </div>
 
-      {/* Desktopvisning (vises kun fra md og op) */}
+      {/* Desktopvisning (vises kun fra xl og op) */}
       <div className="hidden xl:flex items-center justify-between w-full">
         {/* Venstre side: Logo */}
         <Link to="/mineforloeb">
@@ -89,10 +89,16 @@ export default function Header() {
 
         {/* Højre side: Navigation med links */}
         <nav className="flex gap-10 text-[18px] font-light">
-          <Link to="/udforskalleforloeb">UDFORSK ALLE FORLØB</Link>
-          <Link to="/mineforloeb">SE ALLE MINE FORLØB</Link>
-          <Link to="/indstillinger">INDSTILLINGER</Link>
-          <Link onClick={() => handleLogout}>LOG UD</Link>
+          {role === "underviser" ? (
+            <Link to="/udforskalleforloeb">UDFORSK ALLE FORLØB</Link>
+          ) : (
+            <Link to="/shop">GÅ TIL SHOP</Link>
+          )}
+          <Link to="/mineforloeb">MINE FORLØB</Link>
+          <Link to="#">INDSTILLINGER</Link>
+          <button onClick={handleLogout} className="text-left">
+            LOG UD
+          </button>
         </nav>
       </div>
     </header>
