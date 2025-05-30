@@ -21,6 +21,7 @@ export default function MineForloeb() {
 
   return (
     <>
+    <br />
       <Overskrift tekst={"MINE FORLØB"} />
 
       {role === "elev" && (

@@ -9,7 +9,7 @@ export default function Burgermenu() {
 
   const handleLogout = async () => {
     await auth.signOut(); //awai er en asynkron funktion, der venter på at brugeren bliver logget ud. Så den venter på at auth.signOut() er færdig, før den fortsætter
-
+    document.body.classList.remove("tema-roed", "tema-gul", "tema-groen", "tema-blaa"); // Fjerner de gamle tema-klasser fra body, så der ikke er flere temaer aktive på samme tid
     navigate("/"); // Når brugeren er logget ud navigeres den tilbage til logind-siden
   };
 
