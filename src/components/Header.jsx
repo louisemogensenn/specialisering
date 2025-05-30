@@ -23,6 +23,17 @@ export default function Header() {
   const { points } = useProgress(); // Henter brugerens point
   const erBurgermenu = location.pathname === "/burgermenu"; // Tjekker om brugeren er på burgermenu-siden
 
+  const handleLogout = async () => {
+    await auth.signOut(); //awai er en asynkron funktion, der venter på at brugeren bliver logget ud. Så den venter på at auth.signOut() er færdig, før den fortsætter
+    document.body.classList.remove(
+      "tema-roed",
+      "tema-gul",
+      "tema-groen",
+      "tema-blaa"
+    ); // Fjerner de gamle tema-klasser fra body, så der ikke er flere temaer aktive på samme tid
+    navigate("/"); // Når brugeren er logget ud navigeres den tilbage til logind-siden
+  };
+
   return (
     // Wrapper for hele headeren med baggrundsfarve, padding og layout
     <header className="w-full flex items-center justify-between px-[12.5%] py-6">
@@ -78,10 +89,10 @@ export default function Header() {
 
         {/* Højre side: Navigation med links */}
         <nav className="flex gap-10 text-[18px] font-light">
-          <Link to="/udforsk">UDFORSK ALLE FORLØB</Link>
+          <Link to="/udforskalleforloeb">UDFORSK ALLE FORLØB</Link>
           <Link to="/mineforloeb">SE ALLE MINE FORLØB</Link>
           <Link to="/indstillinger">INDSTILLINGER</Link>
-          <Link to="/logout">LOG UD</Link>
+          <Link onClick={() => handleLogout}>LOG UD</Link>
         </nav>
       </div>
     </header>
