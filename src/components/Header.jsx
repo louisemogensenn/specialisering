@@ -96,9 +96,13 @@ export default function Header() {
           )}
           <Link to="/mineforloeb">MINE FORLØB</Link>
           <Link to="#">INDSTILLINGER</Link>
-          <button onClick={handleLogout} className="text-left">
+          <Link
+            to="/"
+            onClick={handleLogout}
+            className="text-[18px] font-light"
+          >
             LOG UD
-          </button>
+          </Link>
         </nav>
       </div>
     </header>
